@@ -1,6 +1,7 @@
 .flex{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .excos{
   margin: 0 auto;
@@ -21,6 +22,17 @@
   }
 }
 
+.trustee-image{
+  img{
+    max-width: 80px;
+    max-height:  80px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5%;
+    margin-bottom: 0.3em;
+  }
+}
+
 .exec-details {
   p {
    line-height: 0.8em;
@@ -34,4 +46,35 @@
 .cent{
   text-align: center;
 
+}
+
+.sub-headings{
+  display: block;
+  width: 100%;
+  background: #444;
+  color: rgb(153, 147, 147);
+  text-align: center;
+}
+
+.constitution{
+  padding: 6em 3em;
+
+  .mat-icon{
+
+    font-size: 150%;
+  }
+
+  .const-icon{
+    display: block;
+     margin: 0 auto;
+  }
+
+
+
+}
+
+.mat-but{
+  background: rgb(2, 97, 46);
+  color: #fff;
+  font-size: 1.1em;
 }

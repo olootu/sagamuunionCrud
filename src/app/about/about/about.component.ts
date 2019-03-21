@@ -18,6 +18,13 @@ export class AboutComponent implements OnInit {
       {name: 'Soji Soda', title: 'Mr', position: 'Gen Secretary', img:'ewusi2'}
   ];
 
+  trustees: Executive[] = [
+    {name: 'A. Kehinde', title: 'Chief', position: '', img:'logo'},
+    {name: 'Musa O\'Balogun', title: 'Aremooba', position: '', img:'ewusi2'},
+    {name: 'Abiola Ogunkoya', title: 'Chief', position: '', img:'logo'},
+    {name: 'Lai Soile', title: 'Dr (Chief)', position: '', img:'ewusi2'}
+];
+
   constructor() { }
 
   ngOnInit() {

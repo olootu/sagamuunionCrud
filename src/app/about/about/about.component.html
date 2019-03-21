@@ -3,7 +3,7 @@
       <h1 class="cent">The Organisation</h1>
 
   </div>
-  <div class="excos">
+  <div class="excos col-md-10">
     <h3>Current Excos</h3>
     <div class="flex">
     <div class="child" *ngFor="let exec of executives">
@@ -20,4 +20,51 @@
     </div>
   </div>
   </div>
+
+  <div class="excos col-md-10">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="sub-headings">Trustees</h3>
+      <div class="flex">
+      <div class="child" *ngFor="let exec of trustees">
+        <div>
+          <div class="trustee-image">
+            <img [src]="'../../../assets/' + exec.img + '.png'" [alt]="exec.name">
+          </div>
+          <div class="exec-details">
+            <p><span>{{exec.title}} </span><span>{{exec.name}}</span></p>
+            <p class="cent">{{exec.position}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+      <h3 class="sub-headings">Elders Forum</h3>
+      <div class="flex">
+      <div class="child" *ngFor="let exec of trustees">
+        <div>
+          <div class="exec-image">
+            <img [src]="'../../../assets/' + exec.img + '.png'" [alt]="exec.name">
+          </div>
+          <div class="exec-details">
+            <p><span>{{exec.title}} </span><span>{{exec.name}}</span></p>
+            <p class="cent">{{exec.position}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+      <h3 class="sub-headings">Our Law</h3>
+      <div class="constitution">
+        <mat-icon class="const-icon">cloud_download</mat-icon>
+        <button class="mat-but" mat-raised-button>Download our constitution</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
 </div>
