@@ -1,0 +1,23 @@
+.header{
+    background: #777;
+    color: #fff;
+
+    &:hover{
+        background: #ddd;
+    }
+
+    .title{
+        color: #fff;
+      }
+  }
+
+  .member-title{
+      margin: 2em 0;
+  }
+
+  .flex{
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+ 

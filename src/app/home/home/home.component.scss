@@ -1,0 +1,46 @@
+.home-content{
+  margin-top: 6em;
+}
+
+.carousel-holder{
+
+  height: 510px;
+  width: 550px;
+  margin: 0 auto;
+
+  background: transparent url('../../../assets/round_bgrd2.PNG') no-repeat top center;
+  background-size: cover;
+  position: relative;
+
+  .carousel{
+    // border: 1px solid red;
+      height: 300px;
+      max-height: 300px;
+      width: 400px;
+      // background: #f5f5f5;
+      top: 5.5em;
+      left: 6.9em;
+      position: relative;
+
+
+
+  }
+}
+
+.carousel-slider{
+  border-radius: 20px;
+  border: 1px solid red;
+}
+
+.blue_btn {
+  background: #435F74;
+  color: #fff;
+  //#589E48
+}
+
+.green_btn {
+  background: #589E48;
+  color: #fff;
+  //#589E48
+}
+

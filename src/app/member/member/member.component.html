@@ -1,0 +1,174 @@
+<div class="row">
+  <div class="col-md-12 member-title">
+    <h1>Membership & registration</h1>
+  </div>
+    <div class="col-md-6 ">
+
+       <div class="row">
+         <div class="col-md-6">
+           <h2>Sign-in</h2>
+           <form class="example-form" (submit)="signIn(memberSigninForm)" #memberSigninForm="ngForm" >
+              <div>
+                  <mat-form-field class="example-full-width">
+                    <input ngModel matInput placeholder="Username" type="text" name="username" >
+                  </mat-form-field>
+                </div>
+
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <input ngModel matInput placeholder="Password" type="password" name="password" >
+                  </mat-form-field>
+                </div>
+
+
+                <div>
+
+                    <button type="submit"  color="accent" mat-raised-button >Signin</button>
+
+
+                </div>
+          </form>
+         </div>
+
+         <!-- Register -->
+         <div class="col-md-6">
+           <h2>Register</h2>
+           <p>Membership is opened to all indigines of Sagamu living in the Great Britain.</p>
+            <form class="example-form" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
+                <div>
+                    <mat-form-field class="example-full-width">
+                      <input ngModel matInput placeholder="Name" type="text" name="name" >
+                    </mat-form-field>
+                  </div>
+
+                  <div>
+                    <mat-form-field class="example-full-width">
+                      <input ngModel matInput placeholder="Email" type="text" name="email" >
+                    </mat-form-field>
+                  </div>
+
+                  <div>
+                    <mat-form-field class="example-full-width">
+                      <input ngModel matInput placeholder="telephone" type="text" name="telephone" >
+                    </mat-form-field>
+                  </div>
+
+
+                  <div>
+
+                      <button type="submit"  color="primary" mat-raised-button >Apply</button>
+
+
+                  </div>
+            </form>
+
+        </div>
+       </div>
+      </div>
+
+      <div class="col-md-6 ">
+         <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header class="header">
+                <mat-panel-title class="title"> 
+             Members List
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          <div>
+              <!-- <mat-list role="list">
+                  <mat-list-item *ngFor="let member of membersList" role="listitem">
+                    <div class="row">
+                      <div class="col-md-4">
+                      <img src="../../../assets/logo.png">
+                      </div>
+                      <div class="col-md-4">{{member.name}}</div>
+                      <div class="col-md-4">{{member.email}}</div>
+                      <button type="button" (click)="onDelete(member.id)"  color="warn" mat-raised-button >Delete</button>
+
+                    </div>
+                    
+                  </mat-list-item>
+                </mat-list> -->
+                <mat-list dense class="flex">
+                    <mat-list-item *ngFor="let member of membersList">
+                      <img matListAvatar src="..." alt="...">
+                      <h3 matLine> {{member.name}} </h3>
+                      <p matLine>
+                        <span> {{member.email}} </span>
+                        
+                      </p>
+                      <p matLine>
+                          <span class="demo-2"> {{member.telephone}} </span>
+                        </p>
+                    </mat-list-item>
+                  </mat-list>
+                </div>
+            </mat-expansion-panel>
+        
+          </mat-accordion>
+        </div>
+</div>
+
+
+
+<!-- <div>
+
+  <mat-tab-group>
+      <mat-tab label="Home"> -->
+          <!--The content below is only a placeholder and can be replaced.-->
+  <!-- <div >
+      <form class="example-form flex" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
+          <div>
+              <mat-form-field class="example-full-width">
+                <input ngModel matInput placeholder="Name" type="text" name="name" >
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="example-full-width">
+                <input ngModel matInput placeholder="Email" type="text" name="email" >
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field class="example-full-width">
+                <input ngModel matInput placeholder="telephone" type="text" name="telephone" >
+              </mat-form-field>
+            </div>
+
+
+            <div>
+
+                <button type="submit"  color="primary" mat-raised-button >Apply</button>
+
+
+            </div>
+      </form>
+
+  </div>
+      </mat-tab>
+      <mat-tab label="Membership">
+     <mat-list>
+          <mat-list-item *ngFor="let member of membersList">
+    <div>
+
+      <span>Name :  {{member.name}}  </span>
+      <span>Email: {{member.email}}</span>
+      <span>Telephone: {{member.telephone}}</span>
+      <span>ID: {{member.id}}</span>
+
+    </div>
+    <div>
+      <button type="button" (click)="onDelete(member.id)"  color="warn" mat-raised-button >Delete</button>
+
+
+  </div>
+          </mat-list-item>
+          <div *ngIf="!memberPost">No Post yet</div>
+        </mat-list>
+
+       </mat-tab>
+      <mat-tab label="Youth"> Content 3
+
+      </mat-tab>
+    </mat-tab-group> -->

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {MatButtonModule, MatCheckboxModule,
   MatInputModule, MatFormFieldModule,
   MatCardModule,
@@ -13,7 +14,10 @@ import {MatButtonModule, MatCheckboxModule,
   MatAutocompleteModule,
   MatDatepickerModule,
   MatRadioModule,
-  MatSelectModule
+  MatSelectModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatExpansionModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,7 +39,11 @@ import {MatButtonModule, MatCheckboxModule,
     MatAutocompleteModule,
     MatDatepickerModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatCarouselModule,
+    MatExpansionModule
   ],
   exports: [MatButtonModule,
     MatCheckboxModule,
@@ -53,7 +61,11 @@ import {MatButtonModule, MatCheckboxModule,
     MatAutocompleteModule,
     MatDatepickerModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatCarouselModule,
+    MatExpansionModule
   ],
 })
 export class AngMaterialModule { }
