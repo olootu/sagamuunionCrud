@@ -1,0 +1,37 @@
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.excos{
+  margin: 0 auto;
+  margin-top: 2em;
+
+.child{
+  width: 120px;
+}
+
+.exec-image{
+  img{
+    max-width: 80px;
+    max-height:  80px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    margin-bottom: 0.3em;
+  }
+}
+
+.exec-details {
+  p {
+   line-height: 0.8em;
+    font-size: 12px;
+
+  }
+
+}
+
+}
+.cent{
+  text-align: center;
+
+}
