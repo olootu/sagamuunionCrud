@@ -1,14 +1,41 @@
-.header{
+mat-expansion-panel-header{
     background: #777;
     color: #fff;
-
-    &:hover{
-        background: #ddd;
-    }
+    padding: 0.3em 1em;
 
     .title{
         color: #fff;
+        font-size: 1.2em;
+        font-weight: bold
       }
+  }
+
+  .child {
+    border: 1px solid #eee;
+    width: 250px;
+    height: 140px;
+    max-height: 140px;
+    padding: 1em 0;
+    margin: 0.5em ;
+    overflow-wrap: break-word;
+    overflow: hidden;
+
+    .mem-image{
+      height: 70px;
+      overflow: hidden;
+
+      img{
+        max-width: 100%;
+        max-height: auto;
+      }
+    }
+  }
+  .mat-expansion-panel-header:hover{
+    background: #ccc !important;
+
+    .title{
+      color: #222;
+    }
   }
 
   .member-title{
@@ -20,4 +47,17 @@
       flex-wrap: wrap;
   }
 
- 
+  .mem-text{
+    margin-top: 1em;
+  }
+
+  mat-list {
+
+    // border: 2px solid #eee;
+    overflow: auto;
+}
+
+.search-field{
+  border-bottom: 1px solid #eee;
+  margin: 1em;
+}
