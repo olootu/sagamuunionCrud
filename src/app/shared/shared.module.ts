@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule } from '@angular/router';
-import { AngMaterialModule } from '../angMaterial/angMaterial.module';
 import { FormsModule } from '@angular/forms';
+import { AngMaterialModule } from '../angMaterial/angMaterial.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SearchPipe } from './pipes/search.pipe';
 
@@ -11,10 +13,11 @@ import { SearchPipe } from './pipes/search.pipe';
   imports: [
     CommonModule,
     AngMaterialModule,
+    FlexLayoutModule ,
     RouterModule
   ],
   exports: [
-    AngMaterialModule, FormsModule, CommonModule, ToolbarComponent, SearchPipe
+    AngMaterialModule, FormsModule, CommonModule, FlexLayoutModule , ToolbarComponent, SearchPipe
   ]
 })
 export class SharedModule { }
