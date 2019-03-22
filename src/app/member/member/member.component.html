@@ -115,6 +115,18 @@
                               {{member.telephone}}
                             </p>
                       </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" (click)="onDelete(member.id)"  color="warn" mat-raised-button >Delete</button>
+
+
+                        </div>
+                        <div class="col">
+                            <button type="button" (click)="onEdit(member.id)"  color="primary" mat-raised-button >Edit</button>
+
+
+                        </div>
+                    </div>
                 </div>
 
               </div>

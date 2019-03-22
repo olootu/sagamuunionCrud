@@ -51,4 +51,8 @@ export class MemberComponent implements OnInit {
       this.bsService.deletePost(id);
     }
 
+    onEdit() {
+      console.log('Edit begins')
+    }
+
 }
