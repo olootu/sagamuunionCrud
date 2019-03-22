@@ -3,6 +3,7 @@ import {Member, Post} from '../../models/members.model';
 import {MembersService} from '../../core/members.service';
 import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-member',
@@ -14,10 +15,13 @@ export class MemberComponent implements OnInit {
   member: Member = new Member('', '', null, '');
   membersList: Member[];
   private postsSub: Subscription;
+  mode = 'create';
+  postId: string;
+  memberId: Member;
 
 
 
-    constructor(private bsService: MembersService) { }
+    constructor(private bsService: MembersService, public route: ActivatedRoute) { }
 
     ngOnInit() {
          this.bsService.getPosts();
@@ -25,6 +29,17 @@ export class MemberComponent implements OnInit {
           .subscribe((res: Member[]) => {
             this.membersList = res;
             console.log(this.membersList)
+          });
+
+          this.route.paramMap.subscribe((paramMap: ParamMap) =>{
+            if (paramMap.has('postId')) {
+              this.mode = 'edit';
+              this.postId = paramMap.get('postId');
+              this.memberId = this.bsService.getPostId(this.postId);
+            } else {
+              this.mode = 'create';
+              this.postId = null;
+            }
           });
     }
    ngOnDestroy() {
@@ -51,8 +66,8 @@ export class MemberComponent implements OnInit {
       this.bsService.deletePost(id);
     }
 
-    onEdit() {
-      console.log('Edit begins')
+    onEdit(id: string) {
+      console.log('Edit begins', id);
     }
 
 }

@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MemberComponent } from './member/member.component';
 
 const routes: Routes = [
-  { path: 'member', component: MemberComponent }
+  { path: 'member', component: MemberComponent },
+  { path: 'edit/:postId', component: MemberComponent }
 ];
 
 @NgModule({

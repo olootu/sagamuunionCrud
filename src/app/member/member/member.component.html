@@ -122,7 +122,7 @@
 
                         </div>
                         <div class="col">
-                            <button type="button" (click)="onEdit(member.id)"  color="primary" mat-raised-button >Edit</button>
+                            <a type="button" (click)="onEdit(member.id)" [routerLink]="['/edit', member.id]"   color="primary" mat-raised-button >Edit</a>
 
 
                         </div>

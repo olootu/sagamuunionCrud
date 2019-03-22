@@ -35,6 +35,12 @@ private postUpdated = new Subject<Member[]>();
 
   }
 
+  getPostId(id: string) {
+    console.log('postId', id)
+    return {...this.posts.find(p => p.id === id)};
+
+  }
+
   getPosts() {
     return this.http.get<{message: string, posts: any}>(this.suGBUri)
     .pipe(
