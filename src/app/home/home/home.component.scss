@@ -25,6 +25,32 @@
 
 
   }
+  .royal-meet, .royal-the, .royal-royals{
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+  .royal-meet{
+    top: 100px;
+    left: 60px;
+    color: #435F74;
+    transform: rotate(270deg) translate(-16px, 0px);
+  }
+
+  .royal-the{
+    top: 50px;
+    left: 260px;
+
+  }
+
+  .royal-royals{
+    top: 140px;
+    color: #589E48;
+   right: -25px;
+    transform: rotate(88deg) translate(-16px, 0px);
+  }
 }
 
 .carousel-slider{
