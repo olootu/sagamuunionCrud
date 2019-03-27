@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Member, MemberAdapter, Post} from '../models/members.model';
+import {Member} from '../models/members.model';
 import { map} from 'rxjs/operators';
 import { pipe, Observable, Subject  } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,10 @@ private postUpdated = new Subject<Member[]>();
 
   suGBUri = 'http://localhost:3000/api/posts';
 
-  constructor(private http: HttpClient, private memberAdapter: MemberAdapter) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
 
   addMemberPosts(post: Member) {
@@ -25,8 +29,17 @@ private postUpdated = new Subject<Member[]>();
       this.postUpdated.next([...this.posts]);
      // this.getPosts();
       console.log(res.message);
+      this.router.navigate(['member']);
     });
 
+  }
+
+  updateMemberPosts(id: any, post: Member){
+    return this.http.put('http://localhost:3000/api/posts/'+id, post)
+    .subscribe(res =>{
+      console.log(res);
+    })
+    this.router.navigate(['/']);
   }
 
   getPostUpdatedListener() {
@@ -35,7 +48,7 @@ private postUpdated = new Subject<Member[]>();
 
   }
 
-  getPostId(id: string) {
+  getPostId(id: any) {
     console.log('postId', id)
     return {...this.posts.find(p => p.id === id)};
 
@@ -46,7 +59,7 @@ private postUpdated = new Subject<Member[]>();
     .pipe(
       map(data => {
         return data.posts.map(res => {
-          return {
+          return <any>{
             name: res.name,
             email: res.email,
             telephone: res.telephone,

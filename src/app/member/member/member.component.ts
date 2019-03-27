@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Member, Post} from '../../models/members.model';
 import {MembersService} from '../../core/members.service';
 import { Subscription } from 'rxjs';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -18,12 +18,24 @@ export class MemberComponent implements OnInit {
   mode = 'create';
   postId: string;
   memberId: Member;
+  rForm: FormGroup;
 
 
 
-    constructor(private bsService: MembersService, public route: ActivatedRoute) { }
+    constructor(private bsService: MembersService,
+       public route: ActivatedRoute,
+       private fb: FormBuilder
+       ) { }
 
     ngOnInit() {
+      this.rForm = this.fb.group({
+        name: [''],
+        email: [''],
+        telephone: [''],
+        image: ['']
+      })
+
+
          this.bsService.getPosts();
           this.postsSub = this.bsService.getPostUpdatedListener()
           .subscribe((res: Member[]) => {
@@ -36,6 +48,11 @@ export class MemberComponent implements OnInit {
               this.mode = 'edit';
               this.postId = paramMap.get('postId');
               this.memberId = this.bsService.getPostId(this.postId);
+              this.rForm.patchValue({
+                name: this.memberId.name,
+                email: this.memberId.email,
+                telephone: this.memberId.telephone
+              })
             } else {
               this.mode = 'create';
               this.postId = null;
@@ -45,16 +62,22 @@ export class MemberComponent implements OnInit {
    ngOnDestroy() {
      this.postsSub.unsubscribe();
    }
-    addMember(form: NgForm ) {
+    addMember() {
       const posts: Member = {
         id: '',
-        name: form.value.name,
-        email: form.value.email,
-        telephone: form.value.telephone
+        name: this.rForm.get('name').value,
+        email: this.rForm.get('email').value,
+        telephone: this.rForm.get('telephone').value
       };
-      this.bsService.addMemberPosts(posts);
+      if(this.mode === 'create') {
+        this.bsService.addMemberPosts(posts);
+      } else {
+        this.bsService.updateMemberPosts(this.postId, posts);
+      }
+     
+      console.log('this.rForm.value', this.rForm.value)
 
-      form.reset();
+      this.rForm.reset();
     }
 
     signIn(form: NgForm) {
@@ -68,6 +91,13 @@ export class MemberComponent implements OnInit {
 
     onEdit(id: string) {
       console.log('Edit begins', id);
+    }
+
+    onImagePicked(event: Event){
+      const file = (event.target as HTMLInputElement).files[0];
+      this.rForm.patchValue({image: file});
+      this.rForm.get('image').updateValueAndValidity();
+      console.log(file);
     }
 
 }

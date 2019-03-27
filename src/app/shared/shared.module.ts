@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngMaterialModule } from '../angMaterial/angMaterial.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -17,7 +17,7 @@ import { SearchPipe } from './pipes/search.pipe';
     RouterModule
   ],
   exports: [
-    AngMaterialModule, FormsModule, CommonModule, FlexLayoutModule , ToolbarComponent, SearchPipe
+    AngMaterialModule, FormsModule, ReactiveFormsModule,CommonModule, FlexLayoutModule , ToolbarComponent, SearchPipe
   ]
 })
 export class SharedModule { }

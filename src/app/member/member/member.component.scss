@@ -68,3 +68,12 @@ mat-expansion-panel-header{
 .mem-lower{
   width: 100%;
 }
+
+input[type='file']{
+  visibility: hidden;
+  // margin-bottom: .5em;
+}
+
+button {
+  margin-bottom: 1em;
+}

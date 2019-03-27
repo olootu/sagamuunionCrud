@@ -34,7 +34,43 @@
          <div class="col-md-6">
            <h2>Register</h2>
            <p class="mem-text">Membership is opened to all indigines of Sagamu living in the Great Britain.</p>
-            <form class="example-form" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
+            
+           <form [formGroup]="rForm" class="example-form" (submit)="addMember()" >
+            <div>
+                <mat-form-field class="example-full-width">
+                  <input formControlName="name" matInput placeholder="Name" type="text" name="name" >
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="example-full-width">
+                  <input formControlName="email"  matInput placeholder="Email" type="text" name="email" >
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="example-full-width">
+                  <input formControlName="telephone" matInput placeholder="telephone" type="text" name="telephone" >
+                </mat-form-field>
+              </div>
+
+              <div>
+                <button (click)="fileUpload.click()" type="button"   mat-raised-button >Upload Image</button>
+                  <input #fileUpload   (change)="onImagePicked($event)" type="file" >
+               
+              </div>
+
+
+              <div>
+
+                  <button type="submit"  color="primary" mat-raised-button >Apply</button>
+
+
+              </div>
+        </form>
+           
+           
+           <!-- <form class="example-form" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
                 <div>
                     <mat-form-field class="example-full-width">
                       <input ngModel matInput placeholder="Name" type="text" name="name" >
@@ -60,7 +96,7 @@
 
 
                   </div>
-            </form>
+            </form> -->
 
         </div>
        </div>
