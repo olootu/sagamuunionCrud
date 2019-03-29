@@ -9,7 +9,8 @@ constructor(
   public name: string,
   public email: string,
   public telephone: string,
-  public id: string
+  public id: string,
+  public image: any
 
 ) {}
 
@@ -35,7 +36,8 @@ export class MemberAdapter implements Adapter<Member> {
       item.name,
       item.email,
       item.telephone,
-      item.id
+      item.id,
+      item.image
     );
   }
 }

@@ -1,7 +1,26 @@
 const express = require('express');
+const multer = require('multer');
+const router = express.Router();
+
 const MemberPost = require('../models/post');
 
-const router = express.Router();
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpg': 'jpg',
+  'image/jpeg': 'jpg'
+}
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+     cb(null, 'backend/images');
+  },
+  filename: (req, file, cb) => {
+    const name = file.originalname.toLowerCase().split(' ').join('-');
+    const ext = MIME_TYPE_MAP[file.mimetype];
+    cb(null, name + '-' + Date.now() + '.' + ext);
+  }
+})
+
 
 router.get('/api/posts',(req, res, next) => {
     MemberPost.find()
@@ -13,23 +32,26 @@ router.get('/api/posts',(req, res, next) => {
       });
     });
    });
-  
-   router.post('/api/posts', (req, res, next) => {
+
+   router.post('/api/posts', multer({storage: storage}).single('image'), (req, res, next) => {
+     const imgUrl =  req.protocol + '://' + req.get('host');
     const post = new MemberPost({
       name: req.body.name,
       email: req.body.email,
-      telephone: req.body.telephone
+      telephone: req.body.telephone,
+      imagePath: imgUrl + '/images/' + req.file.filename
     });
     post.save()
     .then(createdPost => {
       res.status(201).json({
         message: 'Post added successfully',
-        postId: createdPost.id
+        // postId: createdPost.id
+        post: createdPost
      });
     });
-  
+    console.log(req.body);
    });
-  
+
    router.put('/api/posts/:ids', (req, res, next) =>{
     const post = new MemberPost({
      _id: req.params.ids,
@@ -50,7 +72,7 @@ router.get('/api/posts',(req, res, next) => {
           console.log(result);
           res.status(200).json({message: "Post deleted"});
         })
-     
+
      })
 
      module.exports = router;

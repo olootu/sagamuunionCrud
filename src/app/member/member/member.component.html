@@ -34,7 +34,7 @@
          <div class="col-md-6">
            <h2>Register</h2>
            <p class="mem-text">Membership is opened to all indigines of Sagamu living in the Great Britain.</p>
-            
+
            <form [formGroup]="rForm" class="example-form" (submit)="addMember()" >
             <div>
                 <mat-form-field class="example-full-width">
@@ -57,7 +57,7 @@
               <div>
                 <button (click)="fileUpload.click()" type="button"   mat-raised-button >Upload Image</button>
                   <input #fileUpload   (change)="onImagePicked($event)" type="file" >
-               
+
               </div>
               <div class="img-preview" *ngIf="imagePreview !=='' && imagePreview">
                 <img [src]="imagePreview" [alt]="name">
@@ -71,8 +71,8 @@
 
               </div>
         </form>
-           
-           
+
+
            <!-- <form class="example-form" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
                 <div>
                     <mat-form-field class="example-full-width">
@@ -133,7 +133,7 @@
                     <div class="row">
 
                      <div class="col-md-4 mem-image">
-                        <img matListAvatar src="../../../assets/ewusi2.png" alt="...">
+                        <img matListAvatar [src]="member.imagePath" alt="...">
 
                      </div>
                      <div class="col-md-8">

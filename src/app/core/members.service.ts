@@ -22,9 +22,16 @@ private postUpdated = new Subject<Member[]>();
 
 
   addMemberPosts(post: Member) {
-     this.http.post<{message: string, postId: string}>(this.suGBUri, post)
+    // form Data instead of json
+    const postData = new FormData();
+    postData.append('name',post.name);
+    postData.append('email', post.email);
+    postData.append('telephone', post.telephone);
+    postData.append('image', post.image, post.name); // post.name here represents the name that'll used as the img name on the backend
+
+     this.http.post<{message: string, post: Member}>(this.suGBUri, postData)
     .subscribe(res => {
-      post.id = res.postId;
+      post.id = res.post.id;
       this.posts.push(post);
       this.postUpdated.next([...this.posts]);
      // this.getPosts();
@@ -63,7 +70,8 @@ private postUpdated = new Subject<Member[]>();
             name: res.name,
             email: res.email,
             telephone: res.telephone,
-            id: res._id
+            id: res._id,
+            imagePath: res.imagePath
           };
         });
       })

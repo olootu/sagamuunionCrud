@@ -12,7 +12,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class MemberComponent implements OnInit {
 
-  member: Member = new Member('', '', null, '');
+  member: Member = new Member('', '', null, '', null);
   membersList: Member[];
   private postsSub: Subscription;
   mode = 'create';
@@ -34,14 +34,14 @@ export class MemberComponent implements OnInit {
         email: [''],
         telephone: [''],
         image: ['']
-      })
+      });
 
 
          this.bsService.getPosts();
           this.postsSub = this.bsService.getPostUpdatedListener()
           .subscribe((res: Member[]) => {
             this.membersList = res;
-            console.log(this.membersList)
+           console.log(this.membersList)
           });
 
           this.route.paramMap.subscribe((paramMap: ParamMap) =>{
@@ -68,21 +68,22 @@ export class MemberComponent implements OnInit {
         id: '',
         name: this.rForm.get('name').value,
         email: this.rForm.get('email').value,
-        telephone: this.rForm.get('telephone').value
+        telephone: this.rForm.get('telephone').value,
+        image: this.rForm.get('image').value
+
       };
       if(this.mode === 'create') {
         this.bsService.addMemberPosts(posts);
       } else {
         this.bsService.updateMemberPosts(this.postId, posts);
       }
-     
-      console.log('this.rForm.value', this.rForm.value)
+      console.log('this.rForm.value', this.rForm.value);
 
       this.rForm.reset();
     }
 
     signIn(form: NgForm) {
-      //ddd
+      // ddd
     }
 
     onDelete(id) {
