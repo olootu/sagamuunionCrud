@@ -18,6 +18,7 @@ export class MemberComponent implements OnInit {
   mode = 'create';
   postId: string;
   memberId: Member;
+  imagePreview: any;
   rForm: FormGroup;
 
 
@@ -97,6 +98,12 @@ export class MemberComponent implements OnInit {
       const file = (event.target as HTMLInputElement).files[0];
       this.rForm.patchValue({image: file});
       this.rForm.get('image').updateValueAndValidity();
+      const reader = new FileReader();
+      reader.onload = () => {
+          this.imagePreview = reader.result;
+      };
+
+      reader.readAsDataURL(file);
       console.log(file);
     }
 

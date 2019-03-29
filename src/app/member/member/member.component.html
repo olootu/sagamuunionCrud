@@ -59,6 +59,9 @@
                   <input #fileUpload   (change)="onImagePicked($event)" type="file" >
                
               </div>
+              <div class="img-preview" *ngIf="imagePreview !=='' && imagePreview">
+                <img [src]="imagePreview" [alt]="name">
+              </div>
 
 
               <div>
