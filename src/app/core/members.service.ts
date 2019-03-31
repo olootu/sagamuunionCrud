@@ -27,7 +27,7 @@ private postUpdated = new Subject<Member[]>();
     postData.append('name',post.name);
     postData.append('email', post.email);
     postData.append('telephone', post.telephone);
-    postData.append('image', post.image, post.name); // post.name here represents the name that'll used as the img name on the backend
+    postData.append('image', post.imagePath, post.name); // post.name here represents the name that'll used as the img name on the backend
 
      this.http.post<{message: string, post: Member}>(this.suGBUri, postData)
     .subscribe(res => {

@@ -20,6 +20,7 @@ export class MemberComponent implements OnInit {
   memberId: Member;
   imagePreview: any;
   rForm: FormGroup;
+  defaultImgUrl = '../../../assets//default.jpeg'
 
 
 
@@ -52,7 +53,8 @@ export class MemberComponent implements OnInit {
               this.rForm.patchValue({
                 name: this.memberId.name,
                 email: this.memberId.email,
-                telephone: this.memberId.telephone
+                telephone: this.memberId.telephone,
+                image: this.memberId.imagePath
               })
             } else {
               this.mode = 'create';

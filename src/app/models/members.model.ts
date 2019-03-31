@@ -10,7 +10,7 @@ constructor(
   public email: string,
   public telephone: string,
   public id: string,
-  public image: any
+  public imagePath: any
 
 ) {}
 

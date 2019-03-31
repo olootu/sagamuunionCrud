@@ -133,7 +133,7 @@
                     <div class="row">
 
                      <div class="col-md-4 mem-image">
-                        <img matListAvatar [src]="member.imagePath" alt="...">
+                        <img matListAvatar [src]="member.imagePath? member.imagePath : defaultImgUrl" alt="...">
 
                      </div>
                      <div class="col-md-8">
