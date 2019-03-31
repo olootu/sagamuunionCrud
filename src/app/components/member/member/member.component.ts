@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Member, Post} from '../../models/members.model';
-import {MembersService} from '../../core/members.service';
+import {Member, Post} from '../../../models/members.model';
+import {MembersService} from '../../../core/members.service';
 import { Subscription } from 'rxjs';
 import { NgForm, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -34,7 +34,7 @@ export class MemberComponent implements OnInit {
         name: [''],
         email: [''],
         telephone: [''],
-        image: ['']
+        imagePath: ['']
       });
 
 
@@ -54,7 +54,7 @@ export class MemberComponent implements OnInit {
                 name: this.memberId.name,
                 email: this.memberId.email,
                 telephone: this.memberId.telephone,
-                image: this.memberId.imagePath
+                imagePath: this.memberId.imagePath
               })
             } else {
               this.mode = 'create';
@@ -71,7 +71,7 @@ export class MemberComponent implements OnInit {
         name: this.rForm.get('name').value,
         email: this.rForm.get('email').value,
         telephone: this.rForm.get('telephone').value,
-        image: this.rForm.get('image').value
+        imagePath: this.rForm.get('imagePath').value
 
       };
       if(this.mode === 'create') {

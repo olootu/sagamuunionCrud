@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Executive } from './../../models/executive.model';
+import { Executive } from './../../../models/executive.model';
 
 @Component({
   selector: 'app-about',
