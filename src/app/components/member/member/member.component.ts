@@ -4,6 +4,7 @@ import {MembersService} from '../../../core/members.service';
 import { Subscription } from 'rxjs';
 import { NgForm, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-member',
@@ -20,6 +21,9 @@ export class MemberComponent implements OnInit {
   memberId: Member;
   imagePreview: any;
   rForm: FormGroup;
+  totalPost = 10;
+  noOfPostPerPage = 2;
+  pageSizeOptions = [1, 2, 5, 10];
   defaultImgUrl = '../../../assets//default.jpeg'
 
 
@@ -108,6 +112,10 @@ export class MemberComponent implements OnInit {
 
       reader.readAsDataURL(file);
       console.log(file);
+    }
+
+    onPagination(event: PageEvent) {
+      console.log(event);
     }
 
 }

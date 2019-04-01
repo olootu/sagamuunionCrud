@@ -23,6 +23,11 @@ const storage = multer.diskStorage({
 
 
 router.get('/api/posts',(req, res, next) => {
+  const pageSize = req.query.pageSize;
+  const currentPage = req.query.page;
+  if (currentPage && pageSize) {
+    
+  }
     MemberPost.find()
     .then(documents => {
       console.log(documents);
