@@ -25,11 +25,11 @@ const storage = multer.diskStorage({
 router.get('/api/posts',(req, res, next) => {
   const pageSize = req.query.pageSize;
   const currentPage = req.query.page;
+  const postQuery = MemberPost.find();
   if (currentPage && pageSize) {
-    
+    postQuery.skip(pageSize * (currentPage -1 ))
   }
-    MemberPost.find()
-    .then(documents => {
+  postQuery.then(documents => {
       console.log(documents);
       res.status(200).json({
         message: 'message sent successfully',
