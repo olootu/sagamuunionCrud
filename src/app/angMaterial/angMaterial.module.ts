@@ -18,7 +18,8 @@ import {MatButtonModule, MatCheckboxModule,
   MatToolbarModule,
   MatMenuModule,
   MatExpansionModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+
 } from '@angular/material';
 
 @NgModule({

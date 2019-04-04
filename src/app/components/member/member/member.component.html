@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-12 member-title">
-    <h1>Membership & registration</h1>
+    <h1>Members</h1>
   </div>
-    <div class="col-md-6 ">
+    <!-- <div class="col-md-6 ">
 
        <div class="row">
-         <div class="col-md-6">
-           <h2>Sign-in</h2>
+         <div class="col-md-6"> -->
+           <!-- <h2>Sign-in</h2>
            <form class="example-form" (submit)="signIn(memberSigninForm)" #memberSigninForm="ngForm" >
               <div>
                   <mat-form-field class="example-full-width">
@@ -27,15 +27,15 @@
 
 
                 </div>
-          </form>
-         </div>
+          </form> -->
+         <!-- </div> -->
 
          <!-- Register -->
-         <div class="col-md-6">
-           <h2>Register</h2>
-           <p class="mem-text">Membership is opened to all indigines of Sagamu living in the Great Britain.</p>
+         <!-- <div class="col-md-6"> -->
+           <!-- <h2>Register</h2>
+           <p class="mem-text">Membership is opened to all indigines of Sagamu living in the Great Britain.</p> -->
 
-           <form [formGroup]="rForm" class="example-form" (submit)="addMember()" >
+           <!-- <form [formGroup]="rForm" class="example-form" (submit)="addMember()" >
             <div>
                 <mat-form-field class="example-full-width">
                   <input formControlName="name" matInput placeholder="Name" type="text" name="name" >
@@ -70,7 +70,7 @@
 
 
               </div>
-        </form>
+        </form> -->
 
 
            <!-- <form class="example-form" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
@@ -101,9 +101,9 @@
                   </div>
             </form> -->
 
-        </div>
+        <!-- </div>
        </div>
-      </div>
+      </div> -->
 
       <div class="col-md-6 ">
          <mat-accordion>
@@ -182,64 +182,4 @@
 
 
 
-<!-- <div>
 
-  <mat-tab-group>
-      <mat-tab label="Home"> -->
-          <!--The content below is only a placeholder and can be replaced.-->
-  <!-- <div >
-      <form class="example-form flex" (submit)="addMember(memberPostForm)" #memberPostForm="ngForm" >
-          <div>
-              <mat-form-field class="example-full-width">
-                <input ngModel matInput placeholder="Name" type="text" name="name" >
-              </mat-form-field>
-            </div>
-
-            <div>
-              <mat-form-field class="example-full-width">
-                <input ngModel matInput placeholder="Email" type="text" name="email" >
-              </mat-form-field>
-            </div>
-
-            <div>
-              <mat-form-field class="example-full-width">
-                <input ngModel matInput placeholder="telephone" type="text" name="telephone" >
-              </mat-form-field>
-            </div>
-
-
-            <div>
-
-                <button type="submit"  color="primary" mat-raised-button >Apply</button>
-
-
-            </div>
-      </form>
-
-  </div>
-      </mat-tab>
-      <mat-tab label="Membership">
-     <mat-list>
-          <mat-list-item *ngFor="let member of membersList">
-    <div>
-
-      <span>Name :  {{member.name}}  </span>
-      <span>Email: {{member.email}}</span>
-      <span>Telephone: {{member.telephone}}</span>
-      <span>ID: {{member.id}}</span>
-
-    </div>
-    <div>
-      <button type="button" (click)="onDelete(member.id)"  color="warn" mat-raised-button >Delete</button>
-
-
-  </div>
-          </mat-list-item>
-          <div *ngIf="!memberPost">No Post yet</div>
-        </mat-list>
-
-       </mat-tab>
-      <mat-tab label="Youth"> Content 3
-
-      </mat-tab>
-    </mat-tab-group> -->

@@ -1,26 +1,70 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h2>Sign-in</h2>
     <form class="example-form" (submit)="signIn(memberSigninForm)" #memberSigninForm="ngForm" >
        <div>
            <mat-form-field class="example-full-width">
-             <input ngModel matInput placeholder="Username" type="text" name="username" >
+             <input #loginUsername="ngModel" ngModel matInput placeholder="Username" type="text"  name="username" >
            </mat-form-field>
          </div>
 
          <div>
            <mat-form-field class="example-full-width">
-             <input ngModel matInput placeholder="Password" type="password" name="password" >
+             <input ngModel #loginPassword="ngModel" matInput placeholder="Password" type="password" name="password" >
            </mat-form-field>
          </div>
 
 
          <div>
 
-             <button type="submit"  color="accent" mat-raised-button >Signin</button>
+             <button type="submit"  color="accent" mat-raised-button >Login</button>
 
 
          </div>
    </form>
   </div>
+
+   <!-- Register -->
+   <div class="col-md-8">
+    <h2>Register</h2>
+    <p class="mem-text">Membership is opened to all indigines of Sagamu living in the Great Britain.</p>
+
+    <form [formGroup]="rForm" class="example-form" (submit)="addMember()" >
+     <div>
+         <mat-form-field class="example-full-width">
+           <input formControlName="name" matInput placeholder="Name" type="text" name="name" >
+         </mat-form-field>
+       </div>
+
+       <div>
+         <mat-form-field class="example-full-width">
+           <input formControlName="email"  matInput placeholder="Email" type="text" name="email" >
+         </mat-form-field>
+       </div>
+
+       <div>
+         <mat-form-field class="example-full-width">
+           <input formControlName="telephone" matInput placeholder="telephone" type="text" name="telephone" >
+         </mat-form-field>
+       </div>
+
+       <div>
+         <button (click)="fileUpload.click()" type="button"   mat-raised-button >Upload Image</button>
+           <input #fileUpload   (change)="onImagePicked($event)" type="file" >
+
+       </div>
+       <div class="img-preview" *ngIf="imagePreview !=='' && imagePreview">
+         <img [src]="imagePreview" [alt]="name">
+       </div>
+
+
+       <div>
+
+           <button type="submit"  color="primary" mat-raised-button >Apply</button>
+
+
+       </div>
+ </form>
+
+ </div>
   </div>
