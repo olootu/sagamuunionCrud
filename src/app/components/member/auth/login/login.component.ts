@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.rForm = this.fb.group({
       name: [''],
       email: [''],
+      password: [''],
       telephone: [''],
       imagePath: ['']
     });
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
       id: '',
       name: this.rForm.get('name').value,
       email: this.rForm.get('email').value,
+      password: this.rForm.get('password').value,
       telephone: this.rForm.get('telephone').value,
       imagePath: this.rForm.get('imagePath').value
 

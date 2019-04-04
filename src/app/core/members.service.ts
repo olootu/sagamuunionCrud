@@ -13,7 +13,8 @@ private posts: Member[] = [];
 private postUpdated = new Subject<Member[]>();
 
 
-  suGBUri = 'http://localhost:3000/api/posts';
+  memberGBUri = 'http://localhost:3000/api/member';
+  signUpGBUri = 'http://localhost:3000/api/signup';
 
   constructor(
     private http: HttpClient,
@@ -26,10 +27,11 @@ private postUpdated = new Subject<Member[]>();
     const postData = new FormData();
     postData.append('name',post.name);
     postData.append('email', post.email);
+    postData.append('password', post.password);
     postData.append('telephone', post.telephone);
     postData.append('image', post.imagePath, post.name); // post.name here represents the name that'll used as the img name on the backend
 
-     this.http.post<{message: string, post: Member}>(this.suGBUri, postData)
+     this.http.post<{message: string, post: Member}>(this.signUpGBUri, postData)
     .subscribe(res => {
       post.id = res.post.id;
       this.posts.push(post);
@@ -42,7 +44,7 @@ private postUpdated = new Subject<Member[]>();
   }
 
   updateMemberPosts(id: any, post: Member){
-    return this.http.put('http://localhost:3000/api/posts/'+id, post)
+    return this.http.put('http://localhost:3000/api/member/'+id, post)
     .subscribe(res =>{
       console.log(res);
     })
@@ -63,13 +65,14 @@ private postUpdated = new Subject<Member[]>();
 
   getPosts(pageSize: number, currentPage: number) {
     const getParams = `?pageSize=$(pageSize)&currentPage=$(currentPage)`;
-    return this.http.get<{message: string, posts: any}>(this.suGBUri)
+    return this.http.get<{message: string, posts: any}>(this.memberGBUri)
     .pipe(
       map(data => {
         return data.posts.map(res => {
           return <any>{
             name: res.name,
             email: res.email,
+            password: res.password,
             telephone: res.telephone,
             id: res._id,
             imagePath: res.imagePath
@@ -85,7 +88,7 @@ private postUpdated = new Subject<Member[]>();
   }
 
   deletePost(postId: string) {
-    return this.http.delete('http://localhost:3000/api/posts/' + postId)
+    return this.http.delete('http://localhost:3000/api/member/' + postId)
     .subscribe(() => {
       console.log('Deleted');
       const updatedPost = this.posts.filter(post => post.id !== postId);

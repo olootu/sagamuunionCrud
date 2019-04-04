@@ -13,7 +13,7 @@ import { PageEvent } from '@angular/material';
 })
 export class MemberComponent implements OnInit {
 
-  member: Member = new Member('', '', null, '', null);
+  member: Member = new Member('', '', null, null, '', null);
   membersList: Member[];
   private postsSub: Subscription;
   mode = 'create';
@@ -38,6 +38,7 @@ export class MemberComponent implements OnInit {
       this.rForm = this.fb.group({
         name: [''],
         email: [''],
+        password: [''],
         telephone: [''],
         imagePath: ['']
       });
@@ -58,6 +59,7 @@ export class MemberComponent implements OnInit {
               this.rForm.patchValue({
                 name: this.memberId.name,
                 email: this.memberId.email,
+                password: this.memberId.password,
                 telephone: this.memberId.telephone,
                 imagePath: this.memberId.imagePath
               })
@@ -87,6 +89,7 @@ export class MemberComponent implements OnInit {
         id: '',
         name: this.rForm.get('name').value,
         email: this.rForm.get('email').value,
+        password: this.rForm.get('password').value,
         telephone: this.rForm.get('telephone').value,
         imagePath: this.rForm.get('imagePath').value
 

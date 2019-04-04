@@ -8,6 +8,7 @@ export class Member  {
 constructor(
   public name: string,
   public email: string,
+  public password: string,
   public telephone: string,
   public id: string,
   public imagePath: any
@@ -35,6 +36,7 @@ export class MemberAdapter implements Adapter<Member> {
     return new Member(
       item.name,
       item.email,
+      item.password,
       item.telephone,
       item.id,
       item.image
