@@ -20,7 +20,8 @@ export class MemberComponent implements OnInit {
   postId: string;
   memberId: Member;
   imagePreview: any;
-  // rForm: FormGroup;
+  rForm: FormGroup;
+  showEditForm: boolean;
   totalPost = 10;
   noOfPostPerPage = 2;
   pageSizeOptions = [1, 2, 5, 10];
@@ -34,12 +35,12 @@ export class MemberComponent implements OnInit {
        ) { }
 
     ngOnInit() {
-      // this.rForm = this.fb.group({
-      //   name: [''],
-      //   email: [''],
-      //   telephone: [''],
-      //   imagePath: ['']
-      // });
+      this.rForm = this.fb.group({
+        name: [''],
+        email: [''],
+        telephone: [''],
+        imagePath: ['']
+      });
 
 
          this.bsService.getPosts(this.noOfPostPerPage, 1);
@@ -69,28 +70,7 @@ export class MemberComponent implements OnInit {
    ngOnDestroy() {
      this.postsSub.unsubscribe();
    }
-    // addMember() {
-    //   const posts: Member = {
-    //     id: '',
-    //     name: this.rForm.get('name').value,
-    //     email: this.rForm.get('email').value,
-    //     telephone: this.rForm.get('telephone').value,
-    //     imagePath: this.rForm.get('imagePath').value
 
-    //   };
-    //   if(this.mode === 'create') {
-    //     this.bsService.addMemberPosts(posts);
-    //   } else {
-    //     this.bsService.updateMemberPosts(this.postId, posts);
-    //   }
-    //   console.log('this.rForm.value', this.rForm.value);
-
-    //   this.rForm.reset();
-    // }
-
-    // signIn(form: NgForm) {
-    //   // ddd
-    // }
 
     onDelete(id) {
 
@@ -99,6 +79,27 @@ export class MemberComponent implements OnInit {
 
     onEdit(id: string) {
       console.log('Edit begins', id);
+      this.showEditForm = true;
+    }
+
+    addMember() {
+      const posts: Member = {
+        id: '',
+        name: this.rForm.get('name').value,
+        email: this.rForm.get('email').value,
+        telephone: this.rForm.get('telephone').value,
+        imagePath: this.rForm.get('imagePath').value
+
+      };
+      if(this.mode === 'create') {
+        this.bsService.addMemberPosts(posts);
+      } else {
+        this.bsService.updateMemberPosts(this.postId, posts);
+      }
+      console.log('this.rForm.value', this.rForm.value);
+
+      this.rForm.reset();
+      this.showEditForm = false;
     }
 
     onImagePicked(event: Event){

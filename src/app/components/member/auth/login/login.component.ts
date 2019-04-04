@@ -54,4 +54,17 @@ export class LoginComponent implements OnInit {
     this.rForm.reset();
   }
 
+  onImagePicked(event: Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.rForm.patchValue({imagePath: file});
+    this.rForm.get('imagePath').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.imagePreview = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+    console.log(file);
+  }
+
 }

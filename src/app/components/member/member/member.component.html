@@ -126,7 +126,45 @@
 
                       </mat-form-field>
                  </form>
-                 {{memberSearch.value.search}}
+
+                </div>
+                <div *ngIf="showEditForm">
+                  <form [formGroup]="rForm" class="example-form" (submit)="addMember()" >
+                    <div>
+                        <mat-form-field class="example-full-width">
+                          <input formControlName="name" matInput placeholder="Name" type="text" name="name" >
+                        </mat-form-field>
+                      </div>
+
+                      <div>
+                        <mat-form-field class="example-full-width">
+                          <input formControlName="email"  matInput placeholder="Email" type="text" name="email" >
+                        </mat-form-field>
+                      </div>
+
+                      <div>
+                        <mat-form-field class="example-full-width">
+                          <input formControlName="telephone" matInput placeholder="telephone" type="text" name="telephone" >
+                        </mat-form-field>
+                      </div>
+
+                      <div>
+                        <button (click)="fileUpload.click()" type="button"   mat-raised-button >Upload Image</button>
+                          <input #fileUpload   (change)="onImagePicked($event)" type="file" >
+
+                      </div>
+                      <div class="img-preview" *ngIf="imagePreview !=='' && imagePreview">
+                        <img [src]="imagePreview" [alt]="name">
+                      </div>
+
+
+                      <div>
+
+                          <button type="submit"  color="primary" mat-raised-button >Apply Edit</button>
+
+
+                      </div>
+                </form>
                 </div>
               <div class="flex">
                 <div class=" row child" *ngFor="let member of membersList | search:'name,type': memberSearch.value.search;" >
