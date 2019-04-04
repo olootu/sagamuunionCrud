@@ -61,7 +61,8 @@ private postUpdated = new Subject<Member[]>();
 
   }
 
-  getPosts() {
+  getPosts(pageSize: number, currentPage: number) {
+    const getParams = `?pageSize=$(pageSize)&currentPage=$(currentPage)`;
     return this.http.get<{message: string, posts: any}>(this.suGBUri)
     .pipe(
       map(data => {

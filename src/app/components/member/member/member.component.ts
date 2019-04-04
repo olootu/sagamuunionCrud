@@ -42,7 +42,7 @@ export class MemberComponent implements OnInit {
       });
 
 
-         this.bsService.getPosts();
+         this.bsService.getPosts(this.noOfPostPerPage, 1);
           this.postsSub = this.bsService.getPostUpdatedListener()
           .subscribe((res: Member[]) => {
             this.membersList = res;
