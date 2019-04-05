@@ -70,3 +70,24 @@
   //#589E48
 }
 
+.example-card {
+  max-width: 400px;
+  margin-top: 2em;
+  box-shadow: none;
+
+  img{
+    border-radius: 50%;
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 3em;
+
+    box-shadow: 1px solid #ccc;
+  }
+}
+
+.example-header-image {
+  // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  // background-size: cover;
+}
+
