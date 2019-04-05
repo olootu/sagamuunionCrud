@@ -45,16 +45,14 @@ router.get('/api/member',(req, res, next) => {
      bcrypt.hash(req.body.password, 10)
      .then( hash =>{
       const post = new MemberPost({
+        _id: req.params.ids,
         name: req.body.name,
         email: req.body.email,
         password: hash,
         telephone: req.body.telephone,
         imagePath: imgUrl + '/images/' + req.file.filename
       });
-
-     })
-
-    post.save()
+      post.save()
     .then(createdMember => {
       res.status(201).json({
         message: 'User added successfully',
@@ -65,7 +63,11 @@ router.get('/api/member',(req, res, next) => {
         error: err
       })
     });
-    console.log(req.body);
+
+     })
+
+    
+    //console.log(req.body);
    });
 
    router.put('/api/member/:ids', (req, res, next) =>{

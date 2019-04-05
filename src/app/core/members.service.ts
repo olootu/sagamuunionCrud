@@ -31,13 +31,13 @@ private postUpdated = new Subject<Member[]>();
     postData.append('telephone', post.telephone);
     postData.append('image', post.imagePath, post.name); // post.name here represents the name that'll used as the img name on the backend
 
-     this.http.post<{message: string, post: Member}>(this.signUpGBUri, postData)
+     this.http.post<{message: string, result: Member}>(this.signUpGBUri, postData)
     .subscribe(res => {
-      post.id = res.post.id;
+   post.id = res.result.id;
       this.posts.push(post);
       this.postUpdated.next([...this.posts]);
      // this.getPosts();
-      console.log(res.message);
+      console.log(res);
       this.router.navigate(['member']);
     });
 
