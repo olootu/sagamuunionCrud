@@ -96,4 +96,15 @@ private postUpdated = new Subject<Member[]>();
       this.postUpdated.next([...this.posts]);
     });
   }
+
+  memberLogin(post) {
+    const loginData = {
+      email: post.email,
+      password: post.password
+    };
+    return this.http.delete('http://localhost:3000/api/login/' + loginData)
+    .subscribe(response => {
+      console.log('login response', response)
+    });
+  }
 }

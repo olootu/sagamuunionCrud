@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const MemberPost = require('../models/members');
 
@@ -66,7 +67,7 @@ router.get('/api/member',(req, res, next) => {
 
      })
 
-    
+
     //console.log(req.body);
    });
 
@@ -92,6 +93,43 @@ router.get('/api/member',(req, res, next) => {
           res.status(200).json({message: "Post deleted"});
         })
 
-     })
+     });
+ //Login logic
+     router.post('/api/login', (req, res, next) => {
+       let fetchMember;
+      MemberPost.findOne({email: req.body.email})
+      .then(member => {
+        if (!member) {
+          return res.status(401).json({
+            message: 'Auth failed'
+          })
+        }
+          fetchMember = member;
+       return  bcrypt.compare(req.body.password, member.password);
+      })
+      .then(result => {
+        if (!result) {
+          return res.status(401).json({
+            message: 'Auth2 failed'
+          })
+        }
+       // create a web token from jwt
+       const token = jwt.sign({email: fetchMember.email, userId: fetchMember._id},
+         'secret-this-should-be-longer',
+          { expiresIn: '1h'});
+
+          res.status(200).json({
+            token: token
+          })
+
+      })
+      .catch(err => {
+        return res.status(401).json({
+          message: 'Not successful'
+        })
+      });
+
+    });
+
 
      module.exports = router;

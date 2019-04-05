@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
 
   signIn(form: NgForm) {
    console.log(form.value);
+
+   this.bsService.memberLogin(form.value);
   }
 
   addMember() {
