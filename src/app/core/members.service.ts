@@ -11,6 +11,7 @@ export class MembersService {
 
 private posts: Member[] = [];
 private postUpdated = new Subject<Member[]>();
+private token: string;
 
 
   memberGBUri = 'http://localhost:3000/api/member';
@@ -63,7 +64,7 @@ private postUpdated = new Subject<Member[]>();
 
   }
 
-  getPosts(pageSize: number, currentPage: number) {
+  getMembers(pageSize: number, currentPage: number) {
     const getParams = `?pageSize=$(pageSize)&currentPage=$(currentPage)`;
     return this.http.get<{message: string, posts: any}>(this.memberGBUri)
     .pipe(
@@ -87,6 +88,30 @@ private postUpdated = new Subject<Member[]>();
     });
   }
 
+  // getPosts(pageSize: number, currentPage: number) {
+  //   const getParams = `?pageSize=$(pageSize)&currentPage=$(currentPage)`;
+  //   return this.http.get<{message: string, posts: any}>(this.memberGBUri)
+  //   .pipe(
+  //     map(data => {
+  //       return data.posts.map(res => {
+  //         return <any>{
+  //           name: res.name,
+  //           email: res.email,
+  //           password: res.password,
+  //           telephone: res.telephone,
+  //           id: res._id,
+  //           imagePath: res.imagePath
+  //         };
+  //       });
+  //     })
+  //   )
+  //   .subscribe((data) => {
+
+  //     this.posts = data;
+  //     this.postUpdated.next([...this.posts]);
+  //   });
+  // }
+
   deletePost(postId: string) {
     return this.http.delete('http://localhost:3000/api/member/' + postId)
     .subscribe(() => {
@@ -98,9 +123,15 @@ private postUpdated = new Subject<Member[]>();
   }
 
   memberLogin(post: Member) {
-    return this.http.post('http://localhost:3000/api/login/', post)
+    return this.http.post<{token: string}>('http://localhost:3000/api/login/', post)
     .subscribe(response => {
-      console.log('login response', response)
+      const token = response.token;
+      this.token = token;
+      console.log('login response', response);
     });
+  }
+
+  getToken() {
+    return this.token;
   }
 }
