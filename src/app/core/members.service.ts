@@ -97,12 +97,8 @@ private postUpdated = new Subject<Member[]>();
     });
   }
 
-  memberLogin(post) {
-    const loginData = {
-      email: post.email,
-      password: post.password
-    };
-    return this.http.delete('http://localhost:3000/api/login/' + loginData)
+  memberLogin(post: Member) {
+    return this.http.post('http://localhost:3000/api/login/', post)
     .subscribe(response => {
       console.log('login response', response)
     });

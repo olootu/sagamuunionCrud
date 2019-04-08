@@ -3,6 +3,7 @@ const multer = require('multer');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const checkAuth = require('../middleware/check-auth');
 
 const MemberPost = require('../models/members');
 
@@ -24,7 +25,7 @@ const storage = multer.diskStorage({
 })
 
 
-router.get('/api/member',(req, res, next) => {
+router.get('/api/member', checkAuth, (req, res, next) => {
   const pageSize = +req.query.pageSize;
   const currentPage = +req.query.page; //plus (+) to convert to integal
   const postQuery = MemberPost.find();
@@ -86,7 +87,7 @@ router.get('/api/member',(req, res, next) => {
      })
     });
 
-    router.delete('/api/member/:id', (req, res, next) =>{
+    router.delete('/api/member/:id', checkAuth, (req, res, next) =>{
         MemberPost.deleteOne({_id: req.params.id})
         .then(result => {
           console.log(result);
