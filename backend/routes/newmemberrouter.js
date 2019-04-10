@@ -102,7 +102,7 @@ router.get('/api/member', checkAuth, (req, res, next) => {
       .then(member => {
         if (!member) {
           return res.status(401).json({
-            message: 'Auth failed'
+            message: 'Auth failed at findOne()'
           })
         }
           fetchMember = member;
@@ -111,7 +111,7 @@ router.get('/api/member', checkAuth, (req, res, next) => {
       .then(result => {
         if (!result) {
           return res.status(401).json({
-            message: 'Auth2 failed'
+            message: 'Auth2 failed at  bcrypt.compare'
           })
         }
        // create a web token from jwt
@@ -126,7 +126,7 @@ router.get('/api/member', checkAuth, (req, res, next) => {
       })
       .catch(err => {
         return res.status(401).json({
-          message: 'Not successful'
+          message: 'Not successful at catch(err ' + err
         })
       });
 
