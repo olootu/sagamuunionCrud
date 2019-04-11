@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
    this.bsService.memberLogin(form.value);
   }
 
-  addMember() {
+  registerMember() {
     const posts: Member = {
       id: '',
       name: this.rForm.get('name').value,
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
     };
     if(this.mode === 'create') {
-      this.bsService.addMemberPosts(posts);
+      this.bsService.registerMember(posts);
     } else {
       this.bsService.updateMemberPosts(this.postId, posts);
     }

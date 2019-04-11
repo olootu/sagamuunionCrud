@@ -95,7 +95,7 @@ export class MemberComponent implements OnInit {
 
       };
       if(this.mode === 'create') {
-        this.bsService.addMemberPosts(posts);
+        this.bsService.registerMember(posts);
       } else {
         this.bsService.updateMemberPosts(this.postId, posts);
       }

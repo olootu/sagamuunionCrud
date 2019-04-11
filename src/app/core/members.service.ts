@@ -13,6 +13,9 @@ private posts: Member[] = [];
 private postUpdated = new Subject<Member[]>();
 private token: string;
 
+private isAuthenticated = false;
+private authStatusListener = new Subject<boolean>(); // get if member is logged in
+
 
   memberGBUri = 'http://localhost:3000/api/member';
   signUpGBUri = 'http://localhost:3000/api/signup';
@@ -23,22 +26,20 @@ private token: string;
     ) { }
 
 
-  addMemberPosts(post: Member) {
+  registerMember(data: Member) {
     // form Data instead of json
     const postData = new FormData();
-    postData.append('name',post.name);
-    postData.append('email', post.email);
-    postData.append('password', post.password);
-    postData.append('telephone', post.telephone);
-    postData.append('image', post.imagePath, post.name); // post.name here represents the name that'll used as the img name on the backend
+    postData.append('name',data.name);
+    postData.append('email', data.email);
+    postData.append('password', data.password);
+    postData.append('telephone', data.telephone);
+    postData.append('image', data.imagePath, data.name); // post.name here represents the name that'll used as the img name on the backend
 
      this.http.post<{message: string, result: Member}>(this.signUpGBUri, postData)
     .subscribe(res => {
-   post.id = res.result.id;
-      this.posts.push(post);
+      data.id = res.result.id;
+      this.posts.push(data);
       this.postUpdated.next([...this.posts]);
-     // this.getPosts();
-      console.log(res);
       this.router.navigate(['member']);
     });
 
@@ -127,11 +128,31 @@ private token: string;
     .subscribe(response => {
       const token = response.token;
       this.token = token;
-      console.log('login response', response);
+
+      if (token) {
+      this.isAuthenticated = true;
+      this.authStatusListener.next(true); // this line emits true boolean if use is authenticated and signed in
+      this.router.navigate(['/member']);
+      }
     });
+  }
+
+  memberLogOut() {
+    this.token = null;
+    this.isAuthenticated = false;
+    this.authStatusListener.next(false);
+    this.router.navigate(['/']);
   }
 
   getToken() {
     return this.token;
+  }
+
+  getIsAuthenticated(){
+    return this.isAuthenticated;
+  }
+
+  getAuthStatusListener() {
+    return this.authStatusListener.asObservable();
   }
 }

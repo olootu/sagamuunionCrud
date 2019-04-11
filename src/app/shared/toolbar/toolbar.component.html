@@ -27,13 +27,16 @@
     </span></a>
   </div>
 
-  <div class="">
-    <a routerLink="/login" routerLinkActive="active">
+  <div class="" >
+    <a *ngIf="!memberIsAuthenticated" routerLink="/login" routerLinkActive="active">
   <span > <mat-icon>how_to_reg</mat-icon>
 Login
   </span></a>
+  <button (click)="onLogOut()" [ngClass]="{'is-login': memberIsAuthenticated}" *ngIf="memberIsAuthenticated" mat-button>
+      <mat-icon>how_to_reg</mat-icon>
+    Logout</button>
 </div>
-  
+
 
 
 
