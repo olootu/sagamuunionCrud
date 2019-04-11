@@ -12,6 +12,7 @@ export class MembersService {
 private posts: Member[] = [];
 private postUpdated = new Subject<Member[]>();
 private token: string;
+// private tokenTimer = NodeJS.Timer;
 
 private isAuthenticated = false;
 private authStatusListener = new Subject<boolean>(); // get if member is logged in
@@ -124,12 +125,19 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
   }
 
   memberLogin(post: Member) {
-    return this.http.post<{token: string}>('http://localhost:3000/api/login/', post)
+    return this.http.post<{token: string, expiresIn: number}>('http://localhost:3000/api/login/', post)
     .subscribe(response => {
       const token = response.token;
       this.token = token;
 
       if (token) {
+        const expiresInDuration = response.expiresIn;
+
+        // log user out after the expired time from the server
+        setTimeout(() => {
+          this.memberLogOut();
+        }, expiresInDuration * 1000);
+
       this.isAuthenticated = true;
       this.authStatusListener.next(true); // this line emits true boolean if use is authenticated and signed in
       this.router.navigate(['/member']);
