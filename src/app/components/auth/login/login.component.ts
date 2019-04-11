@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
-import { Member } from 'src/app/models/members.model';
-import { MembersService } from './../../../../core/members.service';
+import { Member } from '../../../models/members.model';
+import { MembersService } from '../../../core/members.service';
 
 @Component({
   selector: 'app-login',
@@ -33,8 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(form: NgForm) {
-   console.log(form.value);
-
+  //  console.log(form.value);
    this.bsService.memberLogin(form.value);
   }
 
@@ -53,7 +52,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.bsService.updateMemberPosts(this.postId, posts);
     }
-    console.log('this.rForm.value', this.rForm.value);
+    // console.log('this.rForm.value', this.rForm.value);
 
     this.rForm.reset();
   }
@@ -68,7 +67,7 @@ export class LoginComponent implements OnInit {
     };
 
     reader.readAsDataURL(file);
-    console.log(file);
+    // console.log(file);
   }
 
 }
