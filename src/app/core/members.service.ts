@@ -12,7 +12,7 @@ export class MembersService {
 private posts: Member[] = [];
 private postUpdated = new Subject<Member[]>();
 private token: string;
-// private tokenTimer = NodeJS.Timer;
+ private tokenTimer: any;
 
 private isAuthenticated = false;
 private authStatusListener = new Subject<boolean>(); // get if member is logged in
@@ -134,22 +134,69 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
         const expiresInDuration = response.expiresIn;
 
         // log user out after the expired time from the server
-        setTimeout(() => {
-          this.memberLogOut();
-        }, expiresInDuration * 1000);
+        this.setTimer(expiresInDuration);
 
       this.isAuthenticated = true;
       this.authStatusListener.next(true); // this line emits true boolean if use is authenticated and signed in
+      const now = new Date();
+      const expirationDate = new Date( now.getTime() + expiresInDuration * 1000);
+      this.saveAuthToLocalStorage(token, expirationDate);
       this.router.navigate(['/member']);
+      console.log(expirationDate)
       }
     });
+  }
+
+  private setTimer(duration: number){
+    this.tokenTimer = setTimeout(() => {
+      this.memberLogOut();
+     }, duration * 1000);
+
   }
 
   memberLogOut() {
     this.token = null;
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
+    clearTimeout(this.tokenTimer);
+    this.clearAuthToLocalStorage();
     this.router.navigate(['/']);
+    
+  }
+
+  automaticallyAuthoriseUser(){
+    const authInfo = this.getDataFromLocalStorage();
+    const now = new Date();
+    const timeLeftToExpire = authInfo.expirationDate.getTime() - now.getTime();
+    if(timeLeftToExpire > 0){
+      this.token = authInfo.token;
+      this.isAuthenticated = true;
+      this.setTimer(timeLeftToExpire / 1000);
+      this.authStatusListener.next(true);
+    }
+  }
+
+  private saveAuthToLocalStorage(token: string, expirationDate: Date ){
+      localStorage.setItem('token', token);
+      localStorage.setItem('expiration', expirationDate.toISOString());
+  }
+
+  private getDataFromLocalStorage(){
+    const token = localStorage.getItem('token');
+    const expiration = localStorage.getItem('expiration');
+
+    if(!token || !expiration){
+      return
+    }
+    return {
+      token: token,
+      expirationDate: new Date(expiration)
+    }
+  }
+
+  private clearAuthToLocalStorage(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiration');
   }
 
   getToken() {
