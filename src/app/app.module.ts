@@ -12,16 +12,18 @@ import { AboutModule } from './components/about/about.module';
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { AuthInterceptor } from './core/auth-interceptor';
 import { LoginModule } from './components/auth/login.module';
+import { YouthModule } from './components/youth/youth.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
    HomeModule,
    MemberModule,
    AboutModule,
    LoginModule,
+   YouthModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,

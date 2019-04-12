@@ -1,0 +1,38 @@
+.youth{
+  position: relative;
+
+  .content{
+    margin: 0 auto;
+
+    img{
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    .data{
+      position: absolute;
+     top: 16px;
+     right: 1em;
+     font-size: 90%;
+     font-weight: 400;
+
+     .d-name{
+      font-weight: 600;
+     }
+    }
+    .memo{
+      position: absolute;
+      top: 0;
+      right: 50%;
+      font-size: 120%;
+      font-weight: 700;
+
+      mat-icon{
+        margin-top: 14px;
+        position: relative;
+        top: 6px;
+      }
+    }
+  }
+}
