@@ -13,6 +13,7 @@ import { AboutModule } from './components/about/about.module';
 // import { AuthInterceptor } from './core/auth-interceptor';
 import { LoginModule } from './components/auth/login.module';
 import { YouthModule } from './components/youth/youth.module';
+import { ProjectModule } from './components/project/project.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { YouthModule } from './components/youth/youth.module';
    AboutModule,
    LoginModule,
    YouthModule,
+   ProjectModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
