@@ -21,8 +21,11 @@ export class LoginComponent implements OnInit {
        private fb: FormBuilder
   ) { }
 
+  /**
+   *Create a new form group on entry using the Reactive approach
+   * @memberof LoginComponent
+   */
   ngOnInit() {
-
     this.rForm = this.fb.group({
       name: [''],
       email: [''],
@@ -32,11 +35,19 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  signIn(form: NgForm) {
-  //  console.log(form.value);
+/**
+ *Sign user in
+ * @param {NgForm} form
+ * @memberof LoginComponent
+ */
+signIn(form: NgForm) {
    this.bsService.memberLogin(form.value);
   }
 
+  /**
+   *Register member from the UI form
+   * @memberof LoginComponent
+   */
   registerMember() {
     const posts: Member = {
       id: '',
@@ -57,6 +68,11 @@ export class LoginComponent implements OnInit {
     this.rForm.reset();
   }
 
+  /**
+   *Used for the file upload from the UI form
+   * @param {Event} event
+   * @memberof LoginComponent
+   */
   onImagePicked(event: Event){
     const file = (event.target as HTMLInputElement).files[0];
     this.rForm.patchValue({imagePath: file});

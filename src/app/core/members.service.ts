@@ -26,7 +26,10 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
     private router: Router
     ) { }
 
-
+/**
+ * Register member from the UI
+ * @param data data from the UI form
+ */
   registerMember(data: Member) {
     // form Data instead of json
     const postData = new FormData();
@@ -66,6 +69,11 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
 
   }
 
+  /**
+   *
+   * @param pageSize no of pages to display
+   * @param currentPage no of the current page
+   */
   getMembers(pageSize: number, currentPage: number) {
     const getParams = `?pageSize=$(pageSize)&currentPage=$(currentPage)`;
     return this.http.get<{message: string, posts: any}>(this.memberGBUri)
@@ -124,6 +132,13 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
     });
   }
 
+  /**
+   * Login member from the UI login forms c
+   * check that username and password are correct
+   * Announce to the application that user is now logged in by setting isAuthenticated to true
+   * Set Subject variable to true to inform other components by emiting its value
+   * @param post the data passed by the user from the UI login form
+   */
   memberLogin(post: Member) {
     return this.http.post<{token: string, expiresIn: number}>('http://localhost:3000/api/login/', post)
     .subscribe(response => {
@@ -147,6 +162,10 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
     });
   }
 
+  /**
+   *
+   * @param duration  time set for token expiration
+   */
   private setTimer(duration: number){
     this.tokenTimer = setTimeout(() => {
       this.memberLogOut();
@@ -154,6 +173,9 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
 
   }
 
+  /**
+   * called when the logout button is clicked from the UI
+   */
   memberLogOut() {
     this.token = null;
     this.isAuthenticated = false;
@@ -161,14 +183,24 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
     clearTimeout(this.tokenTimer);
     this.clearAuthToLocalStorage();
     this.router.navigate(['/']);
-    
+
   }
 
+  /**
+   * Use to check in the front end if user has already log in
+   * We check the expiration time set in the token from the backend
+   * Compare this to the token time in the local storage
+   * If time on the localStorage is higher the expiration time is still ok
+   */
   automaticallyAuthoriseUser(){
     const authInfo = this.getDataFromLocalStorage();
+    if (!authInfo) {
+      return;
+    }
+
     const now = new Date();
     const timeLeftToExpire = authInfo.expirationDate.getTime() - now.getTime();
-    if(timeLeftToExpire > 0){
+    if ( timeLeftToExpire > 0) {
       this.token = authInfo.token;
       this.isAuthenticated = true;
       this.setTimer(timeLeftToExpire / 1000);
@@ -176,33 +208,51 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
     }
   }
 
+  /**
+   * save/store the token and expiration date from the server into the localStorage
+   * @param token string
+   * @param expirationDate Date
+   */
   private saveAuthToLocalStorage(token: string, expirationDate: Date ){
       localStorage.setItem('token', token);
       localStorage.setItem('expiration', expirationDate.toISOString());
   }
 
+  /**
+   * Get data stored about login from the local storage
+   */
   private getDataFromLocalStorage(){
     const token = localStorage.getItem('token');
     const expiration = localStorage.getItem('expiration');
 
-    if(!token || !expiration){
-      return
+    if(!token || !expiration) {
+      return;
     }
+
     return {
       token: token,
       expirationDate: new Date(expiration)
     }
   }
 
+  /**
+   * Clear localStorage when the user logs out
+   */
   private clearAuthToLocalStorage(){
     localStorage.removeItem('token');
     localStorage.removeItem('expiration');
   }
 
+  /**
+   * Get the login token returned from the nodejs server
+   */
   getToken() {
     return this.token;
   }
 
+  /**
+   * determines if the user is logged in or not
+   */
   getIsAuthenticated(){
     return this.isAuthenticated;
   }

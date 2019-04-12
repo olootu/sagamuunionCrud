@@ -12,8 +12,13 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   memberIsAuthenticated: boolean;
 
   constructor(private ms: MembersService) { }
-
-  ngOnInit() {
+/**
+ *Check for the login status on entry
+ *subscribe to the getIsAuthenticated from the service
+ * @memberof ToolbarComponent
+ */
+ngOnInit() {
+    this.memberIsAuthenticated = this.ms.getIsAuthenticated();
     this.authListenerSubs =  this.ms.getAuthStatusListener()
     .subscribe(isAuthenticated => {
       this.memberIsAuthenticated = isAuthenticated;
@@ -23,8 +28,11 @@ export class ToolbarComponent implements OnInit, OnDestroy {
  ngOnDestroy(){
     this.authListenerSubs.unsubscribe();
  }
-
- onLogOut() {
+/**
+ *log out user on button click
+ * @memberof ToolbarComponent
+ */
+onLogOut() {
   this.ms.memberLogOut();
  }
 }

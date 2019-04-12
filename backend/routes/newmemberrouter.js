@@ -24,7 +24,9 @@ const storage = multer.diskStorage({
   }
 })
 
-
+/**
+ * API to get ALL members from the DB
+*/
 router.get('/api/member', checkAuth, (req, res, next) => {
   const pageSize = +req.query.pageSize;
   const currentPage = +req.query.page; //plus (+) to convert to integal
@@ -42,6 +44,11 @@ router.get('/api/member', checkAuth, (req, res, next) => {
     });
    });
 
+   /**
+    * Api to sign members
+    * multer middleware used to get file/images coming from the request
+    * use BCRYPT to hash the password before sending to the DB (MongoDB)
+   */
    router.post('/api/signup', multer({storage: storage}).single('image'), (req, res, next) => {
      const imgUrl =  req.protocol + '://' + req.get('host');
      bcrypt.hash(req.body.password, 10)
@@ -67,9 +74,6 @@ router.get('/api/member', checkAuth, (req, res, next) => {
     });
 
      })
-
-
-    //console.log(req.body);
    });
 
    router.put('/api/member/:ids', (req, res, next) =>{
@@ -95,7 +99,15 @@ router.get('/api/member', checkAuth, (req, res, next) => {
         })
 
      });
- //Login logic
+
+     /**
+      * Api to login members
+      * checks the login details from the request
+      * compare it to that stored in the DB using the BCRYPT middleware
+      * if login credentials are correct
+      * log user in using the JWT middleware (jwt.sign())
+      * create web token, expiry time and secret hash
+     */
      router.post('/api/login', (req, res, next) => {
        let fetchMember;
       MemberPost.findOne({email: req.body.email})
