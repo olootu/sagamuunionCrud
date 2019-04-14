@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Executive } from './../../../models/executive.model';
+import { MembersService } from 'src/app/core/members.service';
 
 @Component({
   selector: 'app-about',
@@ -8,26 +9,27 @@ import { Executive } from './../../../models/executive.model';
 })
 export class AboutComponent implements OnInit {
 
-  executives: Executive[] = [
-      {name: 'Ola Ogunyemi', title: 'Chief', position: 'President', img:'logo'},
-      {name: 'Soji Soda', title: 'Mr', position: 'Gen Secretary', img:'ewusi2'},
-      {name: 'Tolu Akinmolayan', title: 'Mrs', position: 'Social Secretary', img:'ewusi2'},
-      {name: 'Ola Ogunyemi', title: 'Chief', position: 'President', img:'logo'},
-      {name: 'Soji Soda', title: 'Mr', position: 'Gen Secretary', img:'ewusi2'},
-      {name: 'Ola Ogunyemi', title: 'Chief', position: 'President', img:'logo'},
-      {name: 'Soji Soda', title: 'Mr', position: 'Gen Secretary', img:'ewusi2'}
-  ];
+  executives: any;
+  trustees: any;
 
-  trustees: Executive[] = [
-    {name: 'A. Kehinde', title: 'Chief', position: '', img:'logo'},
-    {name: 'Musa O\'Balogun', title: 'Aremooba', position: '', img:'ewusi2'},
-    {name: 'Abiola Ogunkoya', title: 'Chief', position: '', img:'logo'},
-    {name: 'Lai Soile', title: 'Dr (Chief)', position: '', img:'ewusi2'}
-];
+//   trustees: Executive[] = [
+    // {name: 'A. Kehinde', title: 'Chief', position: '', img:'logo'},
+    // {name: 'Musa O\'Balogun', title: 'Aremooba', position: '', img:'ewusi2'},
+    // {name: 'Abiola Ogunkoya', title: 'Chief', position: '', img:'logo'},
+    // {name: 'Lai Soile', title: 'Dr (Chief)', position: '', img:'ewusi2'}
+// ];
 
-  constructor() { }
+  constructor(private ms: MembersService) { }
 
   ngOnInit() {
+   this.ms.getJson()
+    .subscribe(data => {
+      console.log('Excos', data)
+      this.executives = data['executives'];
+      this.trustees = data['trustees']
+    });
+
+    // console.log('hghj', this.executives)
   }
 
 }

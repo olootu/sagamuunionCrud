@@ -26,6 +26,16 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
     private router: Router
     ) { }
 
+    getJson(): Observable<any>{
+      return  this.http.get('./assets/data.json')
+      .pipe(map( (response: Response) => {
+        const data = response;
+        return data;
+     }))
+     
+      //.subscribe(data => console.log(data));
+    }
+
 /**
  * Register member from the UI
  * @param data data from the UI form

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
+import { MembersService } from 'src/app/core/members.service';
 
 
 @Component({
@@ -27,9 +28,10 @@ slides:any[] = [
 ];
 
 
-  constructor() { }
+  constructor(private ms: MembersService) { }
 
   ngOnInit() {
+   
   }
 
 }
