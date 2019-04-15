@@ -11,7 +11,8 @@ import { SearchPipe } from './pipes/search.pipe';
 @NgModule({
   declarations: [ToolbarComponent, SearchPipe],
   imports: [
-    CommonModule,
+
+  CommonModule,
     AngMaterialModule,
     FlexLayoutModule ,
     RouterModule

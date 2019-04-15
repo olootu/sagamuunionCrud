@@ -4,10 +4,11 @@ import { SharedModule } from './../../shared/shared.module';
 import { AboutRoutingModule } from './about.routing.module';
 import { AboutComponent } from './about/about.component';
 
+
 @NgModule({
   declarations: [AboutComponent],
   imports: [
-    CommonModule,
+  CommonModule,
     SharedModule,
     AboutRoutingModule
   ]

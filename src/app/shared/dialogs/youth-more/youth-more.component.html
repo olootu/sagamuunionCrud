@@ -1,0 +1,30 @@
+<div class="carousel-holder" fxShow.xs="false">
+    <div class="royal-meet">meet</div>
+    <div class="royal-the">the</div>
+    <div class="royal-royals">royals</div>
+  <div class="carousel">
+      <mat-carousel
+      timings="150ms ease-out"
+      [autoplay]="true"
+      interval="5000"
+      color="none"
+      maxWidth="20"
+      proportion="89"
+      slides="5"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      [useKeyboard]="true"
+      [useMouseWheel]="false"
+      orientation="ltr"
+      >
+          <mat-carousel-slide
+              *ngFor="let slide of slides; let i = index"
+              [image]="slide.image"
+              overlayColor="#000000"
+              [hideOverlay]="true">
+            </mat-carousel-slide>
+        </mat-carousel>
+  </div>
+
+</div>

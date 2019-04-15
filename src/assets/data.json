@@ -1,44 +1,47 @@
 {
-    
+
     "executives":[
+          {
+            "name": "Ayodele Ayoola",
+            "title": "Otunba",
+            "position": "Publicity Secretary",
+            "img":"publicity"
+        },
+
+      {
+        "name": "Tolulope Odulate",
+        "title": "Mrs",
+        "position": "Social Secretary",
+        "img":"social"
+    },
+        {
+          "name": "Temitayo O'Balogun",
+          "title": "Chief (Mrs)",
+          "position": "Vice President",
+          "img":"vp"
+      },
+
         {
             "name": "Ola Ogunyemi",
             "title": "Chief",
-            "position": "President", 
+            "position": "President",
             "img":"president"
         },
-        {
-            "name": "Temitayo O'Balogun",
-            "title": "Chief (Mrs)",
-            "position": "Vice President", 
-            "img":"vp"
-        },
-      
-        {
-            "name": "Tolulope Odulate",
-            "title": "Mrs",
-            "position": "Social Secretary", 
-            "img":"social"
-        },
+
 
         {
             "name": "Soji Soda",
             "title": "Mr",
-            "position": "GeneralSecretary", 
+            "position": "General Secretary",
             "img":"gen-sec"
         },
 
-        {
-            "name": "Ayodele Ayoola",
-            "title": "Otunba",
-            "position": "Publicity Secretary", 
-            "img":"publicity"
-        },
+
 
         {
             "name": "Raimi Ogunjimi",
             "title": "Mr",
-            "position": "Fin Secretary / Treasurer", 
+            "position": "Fin Secretary / Treasurer",
             "img":"finance"
         }
     ],
@@ -46,7 +49,7 @@
         {
             "name": "Soji Soda",
             "title": "Mr",
-            "position": "Gen Secretary", 
+            "position": "Gen Secretary",
             "img":"gen-sec"
         }
     ],
@@ -55,6 +58,29 @@
         {"name": "Musa O'Balogun", "title": "Aremooba", "position": "", "img":"welly"},
         {"name": "Abiola Ogunkoya", "title": "Alhaja (Chief)", "position": "", "img":"alhaja"},
         {"name": "Lai Soile", "title": "Dr. (Chief)", "position": "", "img":"dr"}
+    ],
+
+    "youths":[
+
+        {
+          "image": "youth1"
+        },
+
+        {
+          "image": "youth2"
+        },
+        {
+          "image": "youth3"
+        },
+        {
+          "image": "youth4"
+        },
+        {
+          "image": "youth5"
+        }
+
+
+
     ]
 
 

@@ -1,0 +1,29 @@
+<div class="carousel-holder" fxShow.xs="false">
+    <div class="miss-sagamu">Sagamu Day (UK) 2018 - Youth Fashion Show</div>
+
+  <div class="carousel">
+      <mat-carousel
+      timings="150ms ease-out"
+      [autoplay]="true"
+      interval="5000"
+      color="none"
+      maxWidth="20"
+      proportion="89"
+      slides="5"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      [useKeyboard]="true"
+      [useMouseWheel]="false"
+      orientation="ltr"
+      >
+          <mat-carousel-slide class="slide-new"
+              *ngFor="let slide of youth; let i = index"
+              [image]="'../../../../assets/youths/'+slide.image+'.png'"
+              overlayColor="#000000"
+              [hideOverlay]="true">
+            </mat-carousel-slide>
+        </mat-carousel>
+  </div>
+
+</div>

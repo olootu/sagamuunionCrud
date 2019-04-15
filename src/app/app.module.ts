@@ -14,10 +14,12 @@ import { AboutModule } from './components/about/about.module';
 import { LoginModule } from './components/auth/login.module';
 import { YouthModule } from './components/youth/youth.module';
 import { ProjectModule } from './components/project/project.module';
+import { YouthMoreComponent } from './components/dialogs/youth-more/youth-more.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    YouthMoreComponent
   ],
   imports: [
    HomeModule,
@@ -32,6 +34,7 @@ import { ProjectModule } from './components/project/project.module';
     CoreModule,
     BrowserAnimationsModule
   ],
+  entryComponents:[YouthMoreComponent],
   // providers: [
   //   {
   //     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true

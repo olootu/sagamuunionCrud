@@ -9,9 +9,10 @@ import { YouthRoutingModule } from './youth.routing.module';
 @NgModule({
   declarations: [YouthComponent],
   imports: [
-    CommonModule,
+
+  CommonModule,
     SharedModule,
     YouthRoutingModule
-  ],
+  ]
 })
 export class YouthModule { }
