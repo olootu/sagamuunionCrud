@@ -81,6 +81,46 @@
 
 
 
+    ],
+    "events":[
+      {
+        "title": "Monthly General Meeting",
+        "date": "Every 3rd Saturday of the Month",
+        "venue": "Mozah Restaurant",
+        "address":"Camberwell Road, London",
+        "contact": "secretariat@sagamuunion.org",
+        "image": "work_outline",
+        "memo": ""
+      },
+      {
+        "title": "Summer Beach 2019",
+        "date": "10 August, 2019",
+        "venue": "Margate Beach, ",
+        "address":"Kent UK",
+        "contact":  "social@sagamuunion.org",
+        "image": "beach_access",
+        "memo": "Please call to book coach space"
+      },
+      {
+        "title": "Remo Day (UK) 2019",
+        "date": "28 October, 2019",
+        "venue": "TBA",
+        "address":"TBA",
+        "contact": "",
+        "image": "alarm",
+        "memo": "social@sagamuunion.org"
+      },
+      {
+        "title": "Sagamu Day (UK) 2019",
+        "date": "28 October, 2019",
+        "venue": "TBA",
+        "address":"TBA",
+        "contact": "social@sagamuunion.org",
+        "image": "announcement",
+        "memo": ""
+      }
+
+
     ]
 
 

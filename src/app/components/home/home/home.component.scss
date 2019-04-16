@@ -70,39 +70,85 @@
   //#589E48
 }
 
-.example-card {
-  max-width: 400px;
-  margin-top: 2em;
-  box-shadow: none;
 
-  img{
-    border-radius:100px;;
-    // width: 70%;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 3em;
-
-    box-shadow: 1px solid #ccc;
+.events{
+  // margin-top: 3em;
+  h2{
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    color: #888;
   }
-  .mat-icon{
-     font-size: 500%;
-    border-radius: 10%;
 
-     width: 100%;
-     height: 100%;
-    margin: 0 auto;
-    display: block;
+    .info{
+      font-weight: 600;
+      display: inline-block;
+      padding-right: .2em;
+      text-transform: uppercase;
+      font-size: .8em;
 
 
-    box-shadow: 1px solid #ccc;
+    }
+
+     .mat-icon{
+      font-size: 10% !important;
+      }
+
+
+
+
+
+
+    mat-card {
+      max-width: 400px;
+      box-shadow: none;
+      padding-top: 0;
+      min-height: 200px;
+
+      .mat-icon{
+        font-size: 400%;
+        border-radius: 10%;
+        opacity: .7;
+
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: block;
+
+
+        box-shadow: 1px solid #ccc;
+      }
+
+      p{
+        margin-bottom: 0;
+        margin-top: .2em;
+      }
+
+    mat-card-subtitle{
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: .75em
+    }
+    mat-card:hover{
+      border: 1px solid rgba(#ccc, .5);
+      box-shadow: 8px #435F74;
+    }
   }
-  .mat-icon:hover{
-    border: 1px solid rgba(#ccc, .5);
-  }
+
 }
 
-.example-header-image {
-  // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  // background-size: cover;
+mat-carousel{
+  border: 8px solid #444;
+  display: block;
+  border-radius: 12px;
+  background-size: contain;
+
 }
 
+div.carousel-slide {
+  text-align:center;
+  color:green;
+  font-size:40px;
+  font-weight:bold;
+  margin-bottom:-20px;
+  box-shadow: 21px solid #ccc;
+}

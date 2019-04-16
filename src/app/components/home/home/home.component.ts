@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
 title: String = 'Sagamu Union';
 
+events: any[] = [];
+
 
 slides:any[] = [
   {
@@ -31,7 +33,10 @@ slides:any[] = [
   constructor(private ms: MembersService) { }
 
   ngOnInit() {
-   
+   this.ms.getJson()
+   .subscribe(data => {
+     this.events = data['events'];
+   })
   }
 
 }

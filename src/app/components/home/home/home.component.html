@@ -15,72 +15,7 @@
                 <div class="col ">  <button mat-raised-button class="blue_btn"> Contact us</button></div>
               </div>
 
-              <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="10px">
-                <div class="extra">
-                  <mat-card class="example-card">
-                    <!-- <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Shiba Inu</mat-card-title>
-                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    </mat-card-header> -->
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-icon>work_outline</mat-icon>
-                    <mat-card-content>
-                      <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <button mat-button>...more</button>
-                    </mat-card-actions>
-                  </mat-card>
-                </div>
-                <div class="extra">
-                  <mat-card class="example-card">
-                    <!-- <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Shiba Inu</mat-card-title>
-                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    </mat-card-header> -->
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-icon>announcement</mat-icon>
-                    <mat-card-content>
-                      <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <button mat-button>...more</button>
-                    </mat-card-actions>
-                  </mat-card>
-                </div>
-                <div class="extra">
-                  <mat-card class="example-card">
-                    <!-- <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title>Shiba Inu</mat-card-title>
-                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    </mat-card-header> -->
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-icon>alarm</mat-icon>
-                    <mat-card-content>
-                      <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <button mat-button>...more</button>
-                    </mat-card-actions>
-                  </mat-card>
-                </div>
-                <div class="extra"></div>
-              </div>
+
 
         </div>
         <div class="col">
@@ -94,7 +29,7 @@
                 timings="150ms ease-out"
                 [autoplay]="true"
                 interval="5000"
-                color="none"
+                color="accent"
                 maxWidth="20"
                 proportion="89"
                 slides="5"
@@ -116,6 +51,44 @@
 
           </div>
         </div>
+        </div>
+        <div class="row">
+          <div  class="offset-md-1 col-">
+
+              <div class="events" >
+                  <h2>Upcoming Events</h2>
+                  <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="10px">
+                  <div fxFlex="33%" class="extra" *ngFor="let event of events">
+                    <mat-card class="example-card">
+
+                      <mat-icon>{{event.image}}</mat-icon>
+                      <mat-card-content>
+                          <mat-card-subtitle>{{event.title}}</mat-card-subtitle>
+                          <p><span class="info">Date:</span></p>
+                          <span>{{event.date}}</span>
+                          <p><span class="info">Venue:</span></p>
+
+                          <span>{{event.venue}},  {{event.address}}</span>
+                          <p><span class="info">Info:</span></p>
+                          <span>{{event.contact}} </span>
+
+                          <p *ngIf="event.memo"><span class="info">Note:</span></p>
+                          <span *ngIf="event.memo">{{event.memo}} </span>
+                      </mat-card-content>
+                      <!-- <mat-card-actions>
+                        <button mat-button>...more</button>
+                      </mat-card-actions> -->
+                    </mat-card>
+                  </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+          </div>
         </div>
 
 
