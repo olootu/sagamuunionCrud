@@ -11,6 +11,7 @@ export class AboutComponent implements OnInit {
 
   executives: any;
   trustees: any;
+  eldersForum: any;
 
 //   trustees: Executive[] = [
     // {name: 'A. Kehinde', title: 'Chief', position: '', img:'logo'},
@@ -26,7 +27,8 @@ export class AboutComponent implements OnInit {
     .subscribe(data => {
       console.log('Excos', data)
       this.executives = data['executives'];
-      this.trustees = data['trustees']
+      this.trustees = data['trustees'];
+      this.eldersForum = data['eldersForum']
     });
 
     // console.log('hghj', this.executives)

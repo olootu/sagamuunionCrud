@@ -46,12 +46,14 @@
         }
     ],
     "eldersForum":[
-        {
-            "name": "Soji Soda",
-            "title": "Mr",
-            "position": "Gen Secretary",
-            "img":"gen-sec"
-        }
+      {"name": "Ahmed Onikoyi", "title": "Otunba", "position": "", "img":"onikoyi"},
+      {"name": "A. Alimi", "title": "Chief", "position": "", "img":"alimi"},
+      {"name": "Oyebola Adelaja", "title": "Chief (Mrs)", "position": "", "img":"adelaja"},
+      {"name": "Abayomi Alayo", "title": "Prince", "position": "", "img":"alayo"},
+      {"name": "A. Kehinde", "title": "Chief", "position": "", "img":"default"},
+      {"name": "Musa O'Balogun", "title": "Aremooba", "position": "", "img":"welly"},
+      {"name": "Abiola Ogunkoya", "title": "Alhaja (Chief)", "position": "", "img":"ogunkoya"},
+      {"name": "Lai Soile", "title": "Dr. (Chief)", "position": "", "img":"soile"}
     ],
     "trustees":[
         {"name": "A. Kehinde", "title": "Chief", "position": "", "img":"default"},

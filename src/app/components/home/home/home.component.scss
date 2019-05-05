@@ -89,14 +89,6 @@
 
     }
 
-     .mat-icon{
-      font-size: 10% !important;
-      }
-
-
-
-
-
 
     mat-card {
       max-width: 400px;
@@ -151,4 +143,8 @@ div.carousel-slide {
   font-weight:bold;
   margin-bottom:-20px;
   box-shadow: 21px solid #ccc;
+}
+
+.extra:hover{
+  border: 1px solid #ccc;
 }

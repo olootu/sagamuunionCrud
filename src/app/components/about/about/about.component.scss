@@ -57,10 +57,10 @@
 .sub-headings{
   display: block;
   width: 100%;
-  background: #444;
-  // color: rgb(199, 194, 194);
-  color: rgb(177, 171, 171);
-  // color: rgb(153, 147, 147);
+  background: none;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  color: #444;
   text-align: center;
 }
 
