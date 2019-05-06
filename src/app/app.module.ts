@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import {CoreModule} from './core/core.module';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeModule } from './components/home/home.module';
@@ -35,11 +36,10 @@ import { YouthMoreComponent } from './components/dialogs/youth-more/youth-more.c
     BrowserAnimationsModule
   ],
   entryComponents:[YouthMoreComponent],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
-  //   }
-  //  ],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
