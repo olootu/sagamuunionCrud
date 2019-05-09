@@ -8,3 +8,6 @@
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/grid"; // add the grid
 // @import "reset";
+html, body{
+    overflow-x: hidden;
+}

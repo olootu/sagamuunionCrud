@@ -1,7 +1,7 @@
 
 
     <div class="row">
-        <div class="col offset-md-1 home-content">
+        <div class="col-md-6 offset-md-1 col-sm-12 home-content">
           <h1>Providing for the needy</h1>
           <p>Our main objectives are to cater for the welfare of our members, to embark on different projects that will uplift the standard of living of our people back home and also to
             promote our great town, SAGAMU.</p>
@@ -22,7 +22,7 @@
 
 
         </div>
-        <div class="col">
+        <div class="col-md-4">
 
           <div class="carousel-holder" fxShow.xs="false">
               <div class="royal-meet">meet</div>
@@ -61,8 +61,8 @@
 
               <div class="events" >
                   <h2>Upcoming Events</h2>
-                  <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="10px">
-                  <div fxFlex="33%" class="extra" *ngFor="let event of events">
+                  <div fxLayout="row" fxLayout.sm="column" fxLayout.lt-sm="column" fxLayoutAlign="space-between start" fxLayoutGap="10px">
+                  <div fxFlex="33%" fxFlex.sm="100%" class="extra" *ngFor="let event of events">
                     <mat-card class="example-card">
 
                       <mat-icon>{{event.image}}</mat-icon>

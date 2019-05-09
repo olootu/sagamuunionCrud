@@ -4,12 +4,15 @@
 
   </div>
   <div class="excos col-md-10">
-    <h3>Current Excos</h3>
-    <div fxLayout fxLayoutAlign="space-between" class="flexs">
-    <div class="child" *ngFor="let exec of executives">
+    <h3>Current Exco</h3>
+    <div fxLayout="row" fxLayout.lt-sm="row wrap" class="fle">
+    <div fxFlex.lt-sm="120px" class="child" *ngFor="let exec of executives">
       <div>
-        <div class="exec-image">
-          <img [src]="'../../../assets/' + exec.img + '.png'" [alt]="exec.name">
+        <div class="exec" [ngClass]="{
+          'exec-image-small': xBreakPoint,
+          'exec-image': !xBreakPoint
+        }">
+          <img   [src]="'../../../assets/' + exec.img + '.png'" [alt]="exec.name">
         </div>
         <div class="exec-details">
           <p><span>{{exec.title}} </span><span>{{exec.name}}</span></p>

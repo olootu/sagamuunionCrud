@@ -1,4 +1,67 @@
-<mat-toolbar color="" class="flex" >
+<div class="logo" fxHide="true" fxShow.lt-sm>
+    <img src="../../../assets/logo.png">
+ Sagamu Union (GB)</div>
+<div class="menu-icon" fxHide="true" fxShow.lt-sm (click)="onShowNav()">
+    <span><mat-icon class="home-icon"> menu</mat-icon></span>
+</div>
+    <div class="menu-mobile" *ngIf="showNav"  fxHide="true" fxShow.lt-sm fxLayout="column"  >
+       
+      
+        <!-- This fills the remaining space of the current row -->
+        <div class="">
+            <a routerLink="/home" routerLinkActive="active">
+                <span><mat-icon class="home-icon"> home</mat-icon>Home</span>
+            </a>
+            </div>
+        <div class="">
+            <a routerLink="/about" routerLinkActive="active">
+          <span ><mat-icon>info</mat-icon>About us
+          </span>
+          </a>
+      
+        </div>
+        <div class="">
+            <a routerLink="/youths" routerLinkActive="active">
+          <span><mat-icon>android</mat-icon>Youths</span>
+          </a>
+      
+        </div>
+      
+      
+      
+        <div class="">
+            <a routerLink="/donate" routerLinkActive="active">
+          <span> <mat-icon>card_giftcard</mat-icon>Donate</span>
+        </a>
+        </div>
+        <div class="">
+            <a routerLink="/projects" routerLinkActive="active">
+          <span><mat-icon>local_activity</mat-icon>Projects</span>
+        </a>
+        </div>
+      
+        <div class="">
+            <a routerLink="/member" routerLinkActive="active">
+          <span > <mat-icon>how_to_reg</mat-icon>
+           Membership
+          </span></a>
+        </div>
+      
+        <div class="" >
+          <a *ngIf="!memberIsAuthenticated" routerLink="/login" routerLinkActive="active">
+        <span > <mat-icon>how_to_reg</mat-icon>
+      Login
+        </span></a>
+        <button (click)="onLogOut()" [ngClass]="{'is-login': memberIsAuthenticated}" *ngIf="memberIsAuthenticated" mat-button>
+            <mat-icon>how_to_reg</mat-icon>
+          Logout</button>
+      </div>
+      
+      
+      
+      
+    </div>
+<mat-toolbar fxHide="true" fxShow.gt-sm color="" class="flex" >
   <div class="logo">
     <img src="../../../assets/logo.png">
  Sagamu Union (GB)</div>

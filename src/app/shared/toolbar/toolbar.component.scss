@@ -74,5 +74,23 @@ a.active{
   background: #FF4081;
 }
 
+.menu-icon{
+  position: relative;
+  left: 90%;
+  top: -75px;
+  mat-icon{
+    font-size: 120%;
+    cursor: pointer;
+  }
+}
+.menu-mobile{
+  position: absolute;
+  top: 75px;
+  left: 255px;
+  z-index: 999;
+  background: #f5f5f5;
+  padding: 10px 100px 10px 10px;
+}
+
 // header #464952
  // greeen #34BF49

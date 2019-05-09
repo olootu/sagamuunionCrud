@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class ToolbarComponent implements OnInit, OnDestroy {
   private authListenerSubs: Subscription;
   memberIsAuthenticated: boolean;
+  showNav: boolean = false;
 
   constructor(private ms: MembersService) { }
 /**
@@ -23,6 +24,11 @@ ngOnInit() {
     .subscribe(isAuthenticated => {
       this.memberIsAuthenticated = isAuthenticated;
     });
+  }
+
+  onShowNav(){
+    this.showNav = !this.showNav;
+    console.log('hfhfhfjfjfjh')
   }
 
  ngOnDestroy(){
