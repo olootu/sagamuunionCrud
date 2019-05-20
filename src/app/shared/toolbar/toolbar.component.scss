@@ -3,10 +3,11 @@
   display: flex;
   > div{
 
-    flex: 1;
+    // flex: 1;
+    width: 25%;
   }
   .logo{
-    flex: 2;
+   
     position: relative;
     img{
       border: 1px solid #F5f5f5;

@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './components/home/home.module';
 import { MemberModule } from './components/member/member.module';
 import { AboutModule } from './components/about/about.module';
+import { DonateModule } from './components/donate/donate.module';
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { AuthInterceptor } from './core/auth-interceptor';
 import { LoginModule } from './components/auth/login.module';
 import { YouthModule } from './components/youth/youth.module';
 import { ProjectModule } from './components/project/project.module';
 import { YouthMoreComponent } from './components/dialogs/youth-more/youth-more.component';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { YouthMoreComponent } from './components/dialogs/youth-more/youth-more.c
    LoginModule,
    YouthModule,
    ProjectModule,
+   DonateModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
