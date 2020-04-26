@@ -9,9 +9,10 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { SortbyPipe } from './pipes/sortby.pipe';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, SearchPipe, SortbyPipe],
+  declarations: [ToolbarComponent, SearchPipe, SortbyPipe, LoadingComponent],
   imports: [
 
   CommonModule,
@@ -21,7 +22,10 @@ import { SortbyPipe } from './pipes/sortby.pipe';
     RouterModule
   ],
   exports: [
-    AngMaterialModule, FormsModule, ReactiveFormsModule,CommonModule, FlexLayoutModule,NgProgressModule, ToolbarComponent, SearchPipe, SortbyPipe
+    AngMaterialModule, FormsModule, ReactiveFormsModule,
+    CommonModule, FlexLayoutModule,NgProgressModule, 
+    ToolbarComponent, SearchPipe, SortbyPipe,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

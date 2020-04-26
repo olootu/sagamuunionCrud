@@ -1,4 +1,4 @@
-<div class="loading" *ngIf="content.length === 0">....loading...wait</div>
+<app-loading [data]="content"></app-loading>
 <div *ngIf="content.length > 1" class="blog" [ngClass]="{'is-mobile': isMobilePhone || isMobileLandscape}">
   <div class="filter">
     <form #memberSearch="ngForm">
