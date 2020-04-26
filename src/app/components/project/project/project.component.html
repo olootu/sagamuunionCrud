@@ -1,29 +1,17 @@
 <div class="project"> 
-    <div class=" offset-md-9 ">
-        <a href="http://fnd.us/e1VCz9?ref=sh_d87pT9" target="_blank">
-        <button class="help_btn" mat-raised-button > 
-            <p class="help"> Please Donate now!</p>
-            <span class="help-text">...help equip The Enable Center</span>
-        </button>  </a>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let project of projects | sortBy:['modified', 'DESC']">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{project.title.rendered}}</mat-card-title>
+          <mat-card-subtitle *ngIf="project.sub">Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="project.featured_image_url" [alt]="project.slug">
+        <mat-card-content>
+          <p [innerHTML]="project.content.rendered"></p>
+        </mat-card-content>
+      </mat-card>
     </div>
-  <h1>Remo Enable Center, Sagamu</h1>
- 
-  <mat-card mat-elevation-z0>
-     <div class="proj1" fxLayout="row wrap" fxLayout.sm="column">
-  <div fxFlex="50%">
-    <img src="../../../../assets/project3.png" />
   </div>
-  <div fxFlex="50%">
-      <img src="../../../../assets/enable-center-hall2.png" />
-  </div>
-  <div fxFlex="50%">
-      <img src="../../../../assets/enable-center-hall.png" />
-    </div>
-    <div fxFlex="50%">
-        <img src="../../../../assets/enable-center-out.png" />
-    </div>
- </div>
-
-  </mat-card>
-
 </div>

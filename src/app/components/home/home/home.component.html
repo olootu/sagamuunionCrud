@@ -1,100 +1,69 @@
-
-
-    <div class="row">
-        <div class="col-md-6 offset-md-1 col-sm-12 home-content">
-          <h1>Providing for the needy</h1>
-          <p>Our main objectives are to cater for the welfare of our members, to embark on different projects that will uplift the standard of living of our people back home and also to
-            promote our great town, SAGAMU.</p>
-            <div class="row">
-                <div class="col">
-
-                  <a routerLink="/projects" routerLinkActive="active"
-                   mat-raised-button class="green_btn"> Latest projects</a>
-                </div>
-
-                <div class="col ">  
-                    <a routerLink="/about" routerLinkActive="active">
-                  <button mat-raised-button class="blue_btn"> Contact us</button>
-                  </a>
-                </div>
-              </div>
-
-
-
+<div class="home">
+  <div class="row">
+    <div class="col-md-12 top-scroller">
+      <div class="carousel-holder">
+        <div class="carousel">
+          <mat-carousel timings="150ms ease-out" [autoplay]="true" interval="5000" color="accent" maxWidth="20"
+            slides="15" [loop]="true" [hideArrows]="false" [hideIndicators]="false" [useKeyboard]="true"
+            [useMouseWheel]="false" orientation="ltr">
+            <mat-carousel-slide *ngFor="let slide of slides; let i = index" [image]="slide.image" overlayColor="#000000"
+              [hideOverlay]="true">
+            </mat-carousel-slide>
+          </mat-carousel>
         </div>
-        <div class="col-md-4">
-
-          <div class="carousel-holder" fxShow.xs="false">
-              <div class="royal-meet">meet</div>
-              <div class="royal-the">the</div>
-              <div class="royal-royals">royals</div>
-            <div class="carousel">
-                <mat-carousel
-                timings="150ms ease-out"
-                [autoplay]="true"
-                interval="5000"
-                color="accent"
-                maxWidth="20"
-                proportion="89"
-                slides="5"
-                [loop]="true"
-                [hideArrows]="false"
-                [hideIndicators]="false"
-                [useKeyboard]="true"
-                [useMouseWheel]="false"
-                orientation="ltr"
-                >
-                    <mat-carousel-slide
-                        *ngFor="let slide of slides; let i = index"
-                        [image]="slide.image"
-                        overlayColor="#000000"
-                        [hideOverlay]="true">
-                      </mat-carousel-slide>
-                  </mat-carousel>
-            </div>
-
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12  col-sm-12 home-content">
+      <h1>Providing for the needy</h1>
+      <p>Our main objectives are to cater for the welfare of our members, to embark on different projects that will
+        uplift the standard of living of our people back home and also to
+        promote our great town, SAGAMU.</p>
+      <div class="row">
+        <div class="col">
+          <h2>Our projects</h2>
+          <p>The primary project of the union is the <strong>Remo Enable Centre for the Blind</strong> located at Fakoya
+            street, Sabo, Sagamu.</p>
+          <a routerLink="/projects" routerLinkActive="active" mat-raised-button class="follow_btn"> Latest projects</a>
+        </div>
+        <div class="col ">
+          <h2>Caring for the youths</h2>
+          <p>With the future on our sight, we are preparing our youths for the challenges head,
+            encouraging them to participate in our activities and teaching them to be proud of their heritage.
+          </p>
+          <a routerLink="/youths" routerLinkActive="active">
+            <button mat-raised-button class="follow_btn"> See our youths section</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-">
+      <div class="events">
+        <h2>Upcoming Events</h2>
+        <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between" fxLayoutGap="20px">
+          <div class="extra" *ngFor="let event of events">
+            <mat-card class="event-card">
+              <mat-card-content>
+                <div class="flex">
+                  <mat-icon>{{event.image}}</mat-icon>
+                  <mat-card-title>{{event.title}}</mat-card-title>
+                </div>
+                <p><span class="info">Date:</span></p>
+                <span>{{event.date}}</span>
+                <p><span class="info">Venue:</span></p>
+                <span>{{event.venue}}, {{event.address}}</span>
+                <p><span class="info">Info:</span></p>
+                <span>{{event.contact}} </span>
+                <p *ngIf="event.memo"><span class="info">Note:</span></p>
+                <span *ngIf="event.memo">{{event.memo}} </span>
+              </mat-card-content>
+            </mat-card>
           </div>
         </div>
-        </div>
-        <div class="row">
-          <div  class="offset-md-1 col-">
-
-              <div class="events" >
-                  <h2>Upcoming Events</h2>
-                  <div fxLayout="row" fxLayout.sm="column" fxLayout.lt-sm="column" fxLayoutAlign="space-between start" fxLayoutGap="10px">
-                  <div fxFlex="33%" fxFlex.sm="100%" class="extra" *ngFor="let event of events">
-                    <mat-card class="example-card">
-
-                      <mat-icon>{{event.image}}</mat-icon>
-                      <mat-card-content>
-                          <mat-card-subtitle>{{event.title}}</mat-card-subtitle>
-                          <p><span class="info">Date:</span></p>
-                          <span>{{event.date}}</span>
-                          <p><span class="info">Venue:</span></p>
-
-                          <span>{{event.venue}},  {{event.address}}</span>
-                          <p><span class="info">Info:</span></p>
-                          <span>{{event.contact}} </span>
-
-                          <p *ngIf="event.memo"><span class="info">Note:</span></p>
-                          <span *ngIf="event.memo">{{event.memo}} </span>
-                      </mat-card-content>
-                      <!-- <mat-card-actions>
-                        <button mat-button>...more</button>
-                      </mat-card-actions> -->
-                    </mat-card>
-                  </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-          </div>
-        </div>
-
-
-
-
+      </div>
+    </div>
+  </div>
+</div>

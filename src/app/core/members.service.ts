@@ -32,8 +32,6 @@ private authStatusListener = new Subject<boolean>(); // get if member is logged 
         const data = response;
         return data;
      }))
-     
-      //.subscribe(data => console.log(data));
     }
 
 /**

@@ -11,7 +11,6 @@ export class YouthMoreComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public youth: any ) { }
 
   ngOnInit() {
-    console.log(this.youth)
   }
 
 }

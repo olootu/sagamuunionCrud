@@ -1,54 +1,27 @@
+
+:host  .mat-card {
+  // height: 500px;
+  // overflow: scroll;
+  margin-bottom: 3em;
+
+  img {
+    max-width: 100%;
+  }
+}
+
 .project{
-    h1{
-        text-align: center;
-        color: #666;
+  margin-top: 2em;
+  .mat-card-image{
+    max-width: 100%;
+    max-height: 250px;
+  }
+
+  .side-img {
+    img {
+      max-width: 50%;
     }
-
-    .help_btn{
-      background: #5A9C44;
-      border: 2px solid #FA523A;
-      color: #fff;
-      padding-top: 8px;
-      font-weight: 800;
-      font-size: 115%;
-      border-radius: 47%;
-              
-      p{
-        margin-bottom: 0;
-       }
-
-       &:hover {
-         opacity: .8;
-       }
-
-    
-    }
-    .help-text{
-      font-size: 60%;
-      font-weight: normal;
-      padding-top: 0;
-    }
-
-    
+  }
   
-  width: 80%;
-    margin: 0 auto;
-    .proj1 {
-      > div{
-        padding-right: 10px;
-
-        margin-bottom: 20px;
-      }
-      img{
-        width: 100%;
-        max-width: 100%;
-        min-height: 370px;
-        max-height: 350px;
-        opacity: .8;
- 
-     }
-
-    }
-   
+  
 }
 

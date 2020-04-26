@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProjectComponent } from './project/project.component';
+import { ProjectService } from './project.service';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectComponent }
@@ -12,6 +13,7 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [ ProjectService ]
 })
 export class ProjectRoutingModule { }

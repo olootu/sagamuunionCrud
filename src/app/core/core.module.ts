@@ -2,6 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MembersService } from './members.service';
+import { EcwidLoaderService } from './ecwid-loader.service';
+import { ScriptLoaderService } from './script-loader.service';
 import { AuthInterceptor } from './auth-interceptor';
 
 @NgModule({
@@ -13,7 +15,7 @@ import { AuthInterceptor } from './auth-interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
-    }, MembersService
+    }, MembersService, EcwidLoaderService, ScriptLoaderService
    ]
 })
 export class CoreModule {

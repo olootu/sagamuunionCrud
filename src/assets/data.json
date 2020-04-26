@@ -1,129 +1,103 @@
 {
-
-    "executives":[
-          {
-            "name": "Ayodele Ayoola",
-            "title": "Otunba",
-            "position": "Publicity Secretary",
-            "img":"publicity"
-        },
+  "executives":[
+        {
+          "name": "Ayodele Ayoola",
+          "title": "Otunba",
+          "position": "Publicity Secretary",
+          "img":"publicity"
+      },
+    {
+      "name": "Tolulope Akinmolayan",
+      "title": "Mrs",
+      "position": "Social Secretary",
+      "img":"social"
+  },
+      {
+        "name": "Temitayo O'Balogun",
+        "title": "Chief (Mrs)",
+        "position": "Vice President",
+        "img":"vp"
+    },
 
       {
-        "name": "Tolulope Akinmolayan",
-        "title": "Mrs",
-        "position": "Social Secretary",
-        "img":"social"
-    },
-        {
-          "name": "Temitayo O'Balogun",
-          "title": "Chief (Mrs)",
-          "position": "Vice President",
-          "img":"vp"
+          "name": "Ola Ogunyemi",
+          "title": "Chief",
+          "position": "President",
+          "img":"president"
       },
-
-        {
-            "name": "Ola Ogunyemi",
-            "title": "Chief",
-            "position": "President",
-            "img":"president"
-        },
-
-
-        {
-            "name": "Soji Soda",
-            "title": "Mr",
-            "position": "General Secretary",
-            "img":"gen-sec"
-        },
-
-
-
-        {
-            "name": "Raimi Ogunjimi",
-            "title": "Mr",
-            "position": "Fin Secretary / Treasurer",
-            "img":"finance"
-        }
-    ],
-    "eldersForum":[
-      {"name": "Ahmed Onikoyi", "title": "Otunba", "position": "", "img":"onikoyi"},
-      {"name": "A. Alimi", "title": "Chief", "position": "", "img":"alimi"},
-      {"name": "Oyebola Adelaja", "title": "Chief (Mrs)", "position": "", "img":"adelaja"},
-      {"name": "Abayomi Alayo", "title": "Prince", "position": "", "img":"alayo"},
+      {
+          "name": "Soji Soda",
+          "title": "Mr",
+          "position": "General Secretary",
+          "img":"gen-sec"
+      },
+      {
+          "name": "Raimi Ogunjimi",
+          "title": "Mr",
+          "position": "Fin Secretary / Treasurer",
+          "img":"finance"
+      }
+  ],
+  "eldersForum":[
+    {"name": "Ahmed Onikoyi", "title": "Otunba", "position": "", "img":"onikoyi"},
+    {"name": "A. Alimi", "title": "Chief", "position": "", "img":"alimi"},
+    {"name": "Oyebola Adelaja", "title": "Chief (Mrs)", "position": "", "img":"adelaja"},
+    {"name": "Abayomi Alayo", "title": "Prince", "position": "", "img":"alayo"},
+    {"name": "A. Kehinde", "title": "Chief", "position": "", "img":"default"},
+    {"name": "Musa O'Balogun", "title": "Aremooba", "position": "", "img":"welly"},
+    {"name": "Abiola Ogunkoya", "title": "Alhaja (Chief)", "position": "", "img":"ogunkoya"},
+    {"name": "Lai Soile", "title": "Dr. (Chief)", "position": "", "img":"soile"}
+  ],
+  "trustees":[
       {"name": "A. Kehinde", "title": "Chief", "position": "", "img":"default"},
       {"name": "Musa O'Balogun", "title": "Aremooba", "position": "", "img":"welly"},
-      {"name": "Abiola Ogunkoya", "title": "Alhaja (Chief)", "position": "", "img":"ogunkoya"},
-      {"name": "Lai Soile", "title": "Dr. (Chief)", "position": "", "img":"soile"}
-    ],
-    "trustees":[
-        {"name": "A. Kehinde", "title": "Chief", "position": "", "img":"default"},
-        {"name": "Musa O'Balogun", "title": "Aremooba", "position": "", "img":"welly"},
-        {"name": "Abiola Ogunkoya", "title": "Alhaja (Chief)", "position": "", "img":"alhaja"},
-        {"name": "Lai Soile", "title": "Dr. (Chief)", "position": "", "img":"dr"}
-    ],
-
-    "youths":[
-
-        {
-          "image": "youth1"
-        },
-
-        {
-          "image": "youth2"
-        },
-        {
-          "image": "youth3"
-        },
-        {
-          "image": "youth4"
-        },
-        {
-          "image": "youth5"
-        }
-
-
-
-    ],
-    "events":[
+      {"name": "Abiola Ogunkoya", "title": "Alhaja (Chief)", "position": "", "img":"alhaja"},
+      {"name": "Lai Soile", "title": "Dr. (Chief)", "position": "", "img":"dr"}
+  ],
+  "youths":[
       {
-        "title": "Monthly General Meeting",
-        "date": "Every 3rd Saturday of the Month",
-        "venue": "Mozah Restaurant",
-        "address":"Camberwell Road, London",
-        "contact": "secretariat@sagamuunion.org",
-        "image": "work_outline",
-        "memo": ""
+        "image": "youth1"
       },
       {
-        "title": "Summer Beach 2019",
-        "date": "10 August, 2019",
-        "venue": "Margate Beach, ",
-        "address":"Kent UK",
-        "contact":  "social@sagamuunion.org",
-        "image": "beach_access",
-        "memo": "Please call to book coach space"
+        "image": "youth2"
       },
       {
-        "title": "Remo Day (UK) 2019",
-        "date": "30 August, 2019",
-        "venue": "TBA",
-        "address":"TBA",
-        "contact": "",
-        "image": "alarm",
-        "memo": "social@sagamuunion.org"
+        "image": "youth3"
       },
       {
-        "title": "Sagamu Day (UK) 2019",
-        "date": "28 October, 2019",
-        "venue": "TBA",
-        "address":"TBA",
-        "contact": "social@sagamuunion.org",
-        "image": "announcement",
-        "memo": ""
+        "image": "youth4"
+      },
+      {
+        "image": "youth5"
       }
-
-
-    ]
-
-
+  ],
+  "events":[
+    {
+      "title": "Monthly General Meeting",
+      "date": "Every 3rd Saturday of the Month",
+      "venue": "Exotic Bites",
+      "address":"313 New Cross Road, London SE14 6AS",
+      "contact": "secretariat@sagamuunion.org",
+      "image": "work_outline",
+      "memo": ""
+    },
+    {
+      "title": "Sagamu Union 20th Anniversary",
+      "date": "May 24th, 2020 (Postponed)",
+      "venue": "Hilton Hotel",
+      "address":"Masthead Close, Dartford, DA2 6FQ",
+      "contact": "socialoffice@sagamuunion.org",
+      "image": "alarm",
+      "memo": "Postponed due to Covid-19 pandemic"
+    },
+    {
+      "title": "Remo Day (UK) 2020",
+      "date": "Date to be announced",
+      "venue": "Venue details",
+      "address":"full address to be announced",
+      "contact": "socialoffice@sagamuunion.org",
+      "image": "announcement",
+      "memo": "Covid-19 lockdown dependent"
+    }
+  ]
 }

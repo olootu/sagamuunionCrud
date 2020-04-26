@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MembersService } from './../../core/members.service';
 import { Subscription } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,8 +12,19 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   private authListenerSubs: Subscription;
   memberIsAuthenticated: boolean;
   showNav: boolean = false;
+  isMobilePhone: boolean;
 
-  constructor(private ms: MembersService) { }
+  constructor(private ms: MembersService, private breakpointObserver: BreakpointObserver) { 
+
+    breakpointObserver.observe([
+      Breakpoints.HandsetLandscape,
+      Breakpoints.HandsetPortrait
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.isMobilePhone = true;
+      }
+    });
+  }
 /**
  *Check for the login status on entry
  *subscribe to the getIsAuthenticated from the service

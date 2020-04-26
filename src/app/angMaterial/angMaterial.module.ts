@@ -19,7 +19,6 @@ import {MatButtonModule, MatCheckboxModule,
   MatMenuModule,
   MatExpansionModule,
   MatPaginatorModule,
-
 } from '@angular/material';
 
 @NgModule({

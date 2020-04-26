@@ -1,0 +1,35 @@
+<div class="loading" *ngIf="content.length === 0">....loading...wait</div>
+<div *ngIf="content.length > 1" class="blog" [ngClass]="{'is-mobile': isMobilePhone || isMobileLandscape}">
+  <div class="filter">
+    <form #memberSearch="ngForm">
+      <mat-form-field class="mat-select">
+        <mat-icon class="mat-prefix" matPrefix>search</mat-icon>
+        <input name="search" matInput ngModel matInput value="" placeholder="Search for post by title">
+        <button *ngIf="memberSearch.value.search" mat-button matSuffix mat-icon-button aria-label="Clear"
+          (click)="memberSearch.reset()">
+          <mat-icon class="search-close-btn">close</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </form>
+    <mat-form-field>
+      <mat-label>Sort By:</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option value="DESC">Latest posts</mat-option>
+        <mat-option value="ASC">Old posts</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <ng-container
+    *ngFor="let wp of content | sortBy:['modified', selected] | search:'slug,type': memberSearch.value.search;">
+    <div class="blog-container">
+      <div class="pic-holder" [hidden]="isMobilePhone">
+        <img src="{{wp.featured_image_url}}" alt="">
+      </div>
+      <div class="content">
+        <h2>{{wp?.title.rendered}}<span class="date"> last updated: {{wp?.modified | date}}</span></h2>
+        <div [innerHTML]="wp.content.rendered"></div>
+      </div>
+    </div>
+  </ng-container>
+</div>

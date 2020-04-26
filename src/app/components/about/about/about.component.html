@@ -1,27 +1,27 @@
 <div class="row">
   <div class="col-md-12">
-      <h1 class="cent">The Organisation</h1>
+    <h1 class="cent">The Organisation</h1>
 
   </div>
   <div class="excos col-md-10">
     <h3>Current Exco</h3>
     <div fxLayout="row" fxLayout.lt-sm="row wrap" class="fle">
-    <div fxFlex.lt-sm="120px" class="child" *ngFor="let exec of executives">
-      <div>
-        <div class="exec" [ngClass]="{
+      <div fxFlex.lt-sm="120px" class="child" *ngFor="let exec of executives">
+        <div>
+          <div class="exec" [ngClass]="{
           'exec-image-small': xBreakPoint,
           'exec-image': !xBreakPoint
         }">
-          <img   [src]="'../../../assets/' + exec.img + '.png'" [alt]="exec.name">
+            <img [src]="'../../../assets/' + exec.img + '.png'" [alt]="exec.name">
+          </div>
+          <div class="exec-details">
+            <p><span>{{exec.title}} </span><span>{{exec.name}}</span></p>
+            <p class="cent">{{exec.position}}</p>
+          </div>
         </div>
-        <div class="exec-details">
-          <p><span>{{exec.title}} </span><span>{{exec.name}}</span></p>
-          <p class="cent">{{exec.position}}</p>
-        </div>
-      </div>
 
+      </div>
     </div>
-  </div>
   </div>
 
 
@@ -30,23 +30,25 @@
       <div class="col-md-8">
         <h3 class="sub-headings">Our story</h3>
         <div>
-        <div >
-          <p>
-            Sagamu Union (GB) is an association of Sagamu indigenes residing in the UK.
+          <div>
+            <p>
+              Sagamu Union (GB) is an association of Sagamu indigenes residing in the UK.
 
-Founded in 2000, our main objectives are to cater for the welfare of our members, to embark on different projects that will uplift the standard of living of our people back home and also to promote our great town, SAGAMU.
+              Founded in 2000, our main objectives are to cater for the welfare of our members, to embark on different
+              projects that will uplift the standard of living of our people back home and also to promote our great
+              town, SAGAMU.
 
-          </p>
-          <p>
+            </p>
+            <p>
 
-Our meetings are held on every 3rd Saturday of the month.
+              Our meetings are held on every 3rd Saturday of the month.
 
-Who can join?
-Membership is open to all Sagamu indigenes throughout the UK and Ireland.
-          </p>
+              Who can join?
+              Membership is open to all Sagamu indigenes throughout the UK and Ireland.
+            </p>
 
+          </div>
         </div>
-      </div>
       </div>
 
       <div class="col-md-4">
@@ -57,69 +59,34 @@ Membership is open to all Sagamu indigenes throughout the UK and Ireland.
             <span class="addr">562 Heathway, Dagenham, RM10 7RU</span>
           </p>
           <p>
-              <mat-icon>email</mat-icon>
-              <span class="addr">secretariat@sagamuunion.org</span>
-            </p>
-            <p>
-                <mat-icon>phone</mat-icon>
-                <span class="addr">07931122554 </span>
-              </p>
-              <div class="constitution">
-                <a href="../../../../assets/constitution/const.pdf" target="_blank" >
-                  <mat-icon class="const-icon">cloud_download</mat-icon>
-                  <button class="mat-but" color="primary" mat-raised-button>Download our constitution</button>
-                </a>
-                </div>
+            <mat-icon>email</mat-icon>
+            <span class="addr">secretariat@sagamuunion.org</span>
+          </p>
+          <p>
+            <mat-icon>phone</mat-icon>
+            <span class="addr">07931122554 </span>
+          </p>
+          <div class="constitution">
+            <a href="../../../../assets/constitution/const.pdf" target="_blank">
+              <mat-icon class="const-icon">cloud_download</mat-icon>
+              <button class="mat-but" color="primary" mat-raised-button>Download our constitution</button>
+            </a>
+          </div>
 
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
   <div class="excos trustee col-md-10">
-  <div class="row">
-    <div class="col-md-8 ">
-      <h3 class="sub-headings">Trustees</h3>
-      <div class="flex">
-      <div class="child" *ngFor="let trust of trustees">
-        <div>
-          <div class="trustee-image">
-            <img
-            [src]="'../../../assets/' + trust.img + '.png' "
-            [alt]="trust.name">
-          </div>
-          <div class="exec-details">
-            <p><span>{{trust.title}} </span><span>{{trust.name}}</span></p>
-            <p class="cent">{{trust.position}}</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    </div>
-
-    <div class="col-md-4">
-      <h3 class="sub-headings">Projects</h3>
-      <p>The union has been involved in major community projects to uplift the lives of our people back home.</p>
-     <ul>
-       <li>Remo Enable Center, Sagamu</li>
-     </ul>
-    </div>
-  </div>
-  </div>
-
-
-  <div class="excos elders col-md-10">
-      <div class="row">
-        <div class="col-md-8 ">
-          <h3 class="sub-headings">Elders' Forum</h3>
-          <div class="flex">
-          <div class="child" *ngFor="let trust of eldersForum">
+    <div class="row">
+      <div class="col-md-8 ">
+        <h3 class="sub-headings">Trustees</h3>
+        <div class="flex">
+          <div class="child" *ngFor="let trust of trustees">
             <div>
               <div class="trustee-image">
-                <img
-                [src]="'../../../assets/elders/' + trust.img + '.png' "
-                [alt]="trust.name">
+                <img [src]="'../../../assets/' + trust.img + '.png' " [alt]="trust.name">
               </div>
               <div class="exec-details">
                 <p><span>{{trust.title}} </span><span>{{trust.name}}</span></p>
@@ -129,16 +96,47 @@ Membership is open to all Sagamu indigenes throughout the UK and Ireland.
 
           </div>
         </div>
-        </div>
+      </div>
 
-        <div class="col-md-4">
-          <!-- <h3 class="sub-headings">Projects</h3>
+      <div class="col-md-4">
+        <h3 class="sub-headings">Projects</h3>
+        <p>The union has been involved in major community projects to uplift the lives of our people back home.</p>
+        <ul>
+          <li>Remo Enable Center, Sagamu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="excos elders col-md-10">
+    <div class="row">
+      <div class="col-md-8 ">
+        <h3 class="sub-headings">Elders' Forum</h3>
+        <div class="flex">
+          <div class="child" *ngFor="let trust of eldersForum">
+            <div>
+              <div class="trustee-image">
+                <img [src]="'../../../assets/elders/' + trust.img + '.png' " [alt]="trust.name">
+              </div>
+              <div class="exec-details">
+                <p><span>{{trust.title}} </span><span>{{trust.name}}</span></p>
+                <p class="cent">{{trust.position}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- <h3 class="sub-headings">Projects</h3>
           <p>The union has been involved in major community projects to uplift the lives of our people back home.</p>
          <ul>
            <li>Remo Enable Center, Sagamu</li>
          </ul>
         </div> -->
       </div>
-      </div>
+    </div>
 
-</div>
+  </div>

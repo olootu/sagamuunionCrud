@@ -11,12 +11,14 @@ import { HomeModule } from './components/home/home.module';
 import { MemberModule } from './components/member/member.module';
 import { AboutModule } from './components/about/about.module';
 import { DonateModule } from './components/donate/donate.module';
+import { OnlineShopModule } from './components/online-shop/online-shop.module';
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { AuthInterceptor } from './core/auth-interceptor';
 import { LoginModule } from './components/auth/login.module';
 import { YouthModule } from './components/youth/youth.module';
 import { ProjectModule } from './components/project/project.module';
 import { YouthMoreComponent } from './components/dialogs/youth-more/youth-more.component';
+import { BlogModule } from './components/blog/blog.module';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { YouthMoreComponent } from './components/dialogs/youth-more/youth-more.c
    YouthModule,
    ProjectModule,
    DonateModule,
+   OnlineShopModule,
+   BlogModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
