@@ -11,15 +11,14 @@
 html, body{
     overflow-x: hidden;
 }
-a,a:visited {
+a, a:visited {
     color: mediumvioletred;
 }
-// .home {
-//     .carousel-slide {
-//         border: 1px solid green;
-//         height: 300px;
-//       }
-// }
+
+.cent {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
 
 .content{
     .wp-block-video{

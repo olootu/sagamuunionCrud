@@ -1,14 +1,15 @@
 <app-loading [data]="projects"></app-loading>
-<div class="project"> 
+<div class="project" *ngIf="projects.length > 0"> 
+  <h1 class="cent">Our current and future projects</h1>
   <div class="row">
     <div class="col-md-6" *ngFor="let project of projects | sortBy:['modified', 'DESC']">
-      <mat-card class="example-card">
+      <mat-card>
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{project.title.rendered}}</mat-card-title>
-          <mat-card-subtitle *ngIf="project.sub">Dog Breed</mat-card-subtitle>
+          <!-- <mat-card-subtitle *ngIf="project.sub">Dog Breed</mat-card-subtitle> -->
         </mat-card-header>
-        <img mat-card-image [src]="project.featured_image_url" [alt]="project.slug">
+        <img *ngIf="project.featured_image_url" mat-card-image [src]="project.featured_image_url" [alt]="project.slug">
         <mat-card-content>
           <p [innerHTML]="project.content.rendered"></p>
         </mat-card-content>

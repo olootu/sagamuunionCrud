@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Wordpress} from '../../../models/wordpress.model';
 import { BlogService } from '../blog.service';
 import { PageEvent } from '@angular/material';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -10,7 +11,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class BlogComponent implements OnInit {
 
-  content: any = [];
+  content: Wordpress[];
   isMobilePhone: boolean;
   isMobileLandscape: boolean;
   selected = 'DESC';
@@ -44,7 +45,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this.http.getWpApi()
-      .subscribe(data => {
+      .subscribe((data:Wordpress[]) => {
         console.log(data);
         this.content = data;
       })
