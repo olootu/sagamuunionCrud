@@ -1,5 +1,5 @@
 <app-loading [data]="content"></app-loading>
-<div *ngIf="content.length > 1" class="blog" [ngClass]="{'is-mobile': isMobilePhone || isMobileLandscape}">
+<div *ngIf="content?.length > 1" class="blog" [ngClass]="{'is-mobile': isMobilePhone || isMobileLandscape}">
   <div class="filter">
     <form #memberSearch="ngForm">
       <mat-form-field class="mat-select">

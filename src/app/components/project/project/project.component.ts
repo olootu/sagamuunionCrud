@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../project.service';
+import {Wordpress} from '../../../models/wordpress.model';
 
 @Component({
   selector: 'app-project',
@@ -8,12 +9,12 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectComponent implements OnInit {
   
-  projects:any = [];
+  projects:Wordpress[] = [];
   constructor(private http:ProjectService) { }
 
   ngOnInit() {
     this.http.getProjects()
-    .subscribe( data => {
+    .subscribe( (data:Wordpress[]) => {
       console.log(data);
       this.projects = data;
     })
