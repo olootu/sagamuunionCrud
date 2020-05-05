@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { OnlineShopComponent } from './online-shop.component';
 
 const routes: Routes = [
-  { path: 'eshop', component: OnlineShopComponent }
+  { path: '', component: OnlineShopComponent }
 ];
 
 @NgModule({

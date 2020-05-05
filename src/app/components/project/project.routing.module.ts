@@ -4,7 +4,7 @@ import { ProjectComponent } from './project/project.component';
 import { ProjectService } from './project.service';
 
 const routes: Routes = [
-  { path: 'projects', component: ProjectComponent }
+  { path: '', component: ProjectComponent }
 ];
 
 @NgModule({

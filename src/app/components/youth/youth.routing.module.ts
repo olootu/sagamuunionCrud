@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { YouthComponent } from './youth/youth.component';
 
 const routes: Routes = [
-  { path: 'youths', component: YouthComponent }
+  { path: '', component: YouthComponent }
 ];
 
 @NgModule({

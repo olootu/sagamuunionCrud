@@ -11,7 +11,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class BlogComponent implements OnInit {
 
-  content: Wordpress[];
+  content: Wordpress[] = [];
   isMobilePhone: boolean;
   isMobileLandscape: boolean;
   selected = 'DESC';
