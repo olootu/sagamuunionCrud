@@ -23,7 +23,6 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
-    "@ngmodule/material-carousel": "^0.3.1",
     "@ngrx/store": "^9.1.0",
     "@ngx-progressbar/core": "^5.3.2",
     "bcrypt": "^3.0.5",
