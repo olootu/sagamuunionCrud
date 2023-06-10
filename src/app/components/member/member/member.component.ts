@@ -4,7 +4,7 @@ import { MembersService } from '../../../core/members.service';
 import { Subscription } from 'rxjs';
 import { NgForm, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { PageEvent } from '@angular/material/paginator';
+// import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-member',
@@ -118,7 +118,7 @@ export class MemberComponent implements OnInit {
     console.log(file);
   }
 
-  onPagination(event: PageEvent) {
+  onPagination() {
     console.log(event);
   }
 
