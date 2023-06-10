@@ -1,5 +1,5 @@
 import { Injectable, ElementRef } from '@angular/core';
-import { NgProgressRef, NgProgress } from '@ngx-progressbar/core';
+import { NgProgressRef, NgProgress } from 'ngx-progressbar';
 import { ScriptLoaderService } from './script-loader.service';
 
 @Injectable({
@@ -11,9 +11,9 @@ export class EcwidLoaderService {
   private productScriptNode: HTMLScriptElement;
 
   constructor(
-      private progress: NgProgress, 
-      private scripBrowsetLoader: ScriptLoaderService
-    ) { }
+    private progress: NgProgress,
+    private scripBrowsetLoader: ScriptLoaderService
+  ) { }
 
   private loadingPromise: Promise<any>;
   private loaded = false;
@@ -21,7 +21,7 @@ export class EcwidLoaderService {
   public init(product: ElementRef) {
     this.progressRef = this.progress.ref('myProgress');
     this.progressRef.start();
-   
+
     this.loadingPromise = this.scripBrowsetLoader.load('https://app.ecwid.com/script.js?17622029')
       .then(() => {
         window['ecwidLoaded'] = true;
@@ -36,7 +36,7 @@ export class EcwidLoaderService {
     var Ecwid: any = window['Ecwid'];
 
     if (typeof Ecwid != 'undefined') {
-      if(Ecwid.destroy) Ecwid.destroy();
+      if (Ecwid.destroy) Ecwid.destroy();
       this.removeElementsByClassName("ecwid-minicart");
       this.removeElementsByClassName("ecwid-pswp");
       this.removeElementsByClassName("ecwid-Product");
@@ -49,10 +49,10 @@ export class EcwidLoaderService {
     this.productScriptNode = document.createElement('script');
     this.productScriptNode.type = 'text/javascript';
     this.productScriptNode.charset = 'utf-8';
-    this.productScriptNode.textContent='xProductBrowser()';
-    ecwidProductBrowseEl.appendChild(this.productScriptNode) ;
+    this.productScriptNode.textContent = 'xProductBrowser()';
+    ecwidProductBrowseEl.appendChild(this.productScriptNode);
     this.completeProgress();
-}
+  }
 
   private completeProgress() {
     this.progressRef.complete();
@@ -61,7 +61,7 @@ export class EcwidLoaderService {
   private removeElementsByClassName(className: string) {
     var elements = document.getElementsByClassName(className);
     for (var i = 0; i < elements.length; i++) {
-        elements[i].parentNode.removeChild(elements[i]);
+      elements[i].parentNode.removeChild(elements[i]);
     }
   }
 

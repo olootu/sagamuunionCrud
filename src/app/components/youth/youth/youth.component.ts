@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogConfig} from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { YouthMoreComponent } from './../../dialogs/youth-more/youth-more.component';
 import { MembersService } from './../../../core/members.service';
 
@@ -16,9 +16,9 @@ export class YouthComponent implements OnInit {
 
   ngOnInit() {
     this.ms.getJson()
-    .subscribe(data => {
-      this.youths = data['youths'];
-    })
+      .subscribe(data => {
+        this.youths = data['youths'];
+      })
   }
 
   youthDialog() {

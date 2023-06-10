@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA} from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-youth-more',
@@ -8,7 +8,7 @@ import { MAT_DIALOG_DATA} from '@angular/material';
 })
 export class YouthMoreComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public youth: any ) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public youth: any) { }
 
   ngOnInit() {
   }

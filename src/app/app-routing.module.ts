@@ -4,28 +4,29 @@ import { HomeComponent } from './components/home/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', 
-  loadChildren: '../app/components/home/home.module#HomeModule'
-},
-  { 
+  {
+    path: 'home',
+    loadChildren: () => import('../app/components/home/home.module').then(x => x.HomeModule)
+  },
+  {
     path: 'about',
-    loadChildren: '../app/components/about/about.module#AboutModule'
+    loadChildren: () => import('../app/components/about/about.module').then(x => x.AboutModule)
   },
-  { 
+  {
     path: 'blog',
-    loadChildren: '../app/components/blog/blog.module#BlogModule'
+    loadChildren: () => import('../app/components/blog/blog.module').then(x => x.BlogModule)
   },
-  { 
+  {
     path: 'youths',
-    loadChildren: '../app/components/youth/youth.module#YouthModule'
+    loadChildren: () => import('../app/components/youth/youth.module').then(x => x.YouthModule)
   },
-  { 
+  {
     path: 'projects',
-    loadChildren: '../app/components/project/project.module#ProjectModule'
+    loadChildren: () => import('../app/components/project/project.module').then(x => x.ProjectModule)
   },
-  { 
+  {
     path: 'eshop',
-    loadChildren: '../app/components/online-shop/online-shop.module#OnlineShopModule'
+    loadChildren: () => import('../app/components/online-shop/online-shop.module').then(x => x.OnlineShopModule)
   },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
